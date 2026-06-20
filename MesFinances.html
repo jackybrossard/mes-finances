@@ -2182,14 +2182,25 @@ async function archiveTransactions(){
       
       await new Promise(r=>setTimeout(r,500));
       
-      // 2. Recalculate soldeInit for affected banks before deleting
-      const banquesAffectees=bqId?[find(DB.banques,bqId)]:
-        [...new Set(toArchive.map(t=>t.bqId))].map(id=>find(DB.banques,id)).filter(Boolean);
+      // 2. Recalculate soldeInit for affected banks
+      // Formula: newSoldeInit = currentSolde - sum(remaining transactions after deletion)
+      // = (soldeInit + sum(allTx)) - sum(allTx - archivedTx)
+      // = soldeInit + sum(archivedTx)  <- add back the archived transactions
+      const archivedIds=new Set(toArchive.map(t=>t.id));
+      const banquesAffectees=bqId?[find(DB.banques,+bqId)]:
+        [...new Set(toArchive.map(t=>t.bqId))].map(id=>find(DB.banques,+id)).filter(Boolean);
       
       for(const b of banquesAffectees){
-        const txBanque=toArchive.filter(t=>+t.bqId===+b.id);
-        const delta=txBanque.reduce((s,t)=>s+(+t.credit)-(+t.debit),0);
-        const newSoldeInit=(b.soldeInit||0)+delta;
+        if(!b)continue;
+        // Current solde = soldeInit + ALL transactions for this bank
+        const allTxBanque=DB.transactions.filter(t=>+t.bqId===+b.id);
+        const currentSolde=(b.soldeInit||0)+allTxBanque.reduce((s,t)=>s+(+t.credit)-(+t.debit),0);
+        // Remaining transactions after archive
+        const remainingTx=allTxBanque.filter(t=>!archivedIds.has(t.id));
+        const remainingSum=remainingTx.reduce((s,t)=>s+(+t.credit)-(+t.debit),0);
+        // New soldeInit = currentSolde - remainingSum (so total stays the same)
+        const newSoldeInit=currentSolde-remainingSum;
+        console.log(`Archive: Bank ${b.nom} soldeInit ${b.soldeInit} -> ${newSoldeInit} (currentSolde=${currentSolde})`);
         await supa('PATCH','banques',{solde_init:newSoldeInit},`id=eq.${b.id}`);
       }
       
