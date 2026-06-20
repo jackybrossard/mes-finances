@@ -266,6 +266,37 @@ async function loadDB(){
   }
 }
 
+// ── Supabase REST API (with auth token) ──
+async function supa(method,table,body,params){
+  params=params||"";body=body||null;
+  if(!currentUser)throw new Error("Non connecté");
+  // Auto-inject user_id on INSERT (single or batch)
+  if(method==='POST'&&body){
+    if(Array.isArray(body)){
+      body=body.map(row=>({...row,user_id:currentUser.id}));
+    }else if(typeof body==='object'){
+      body={...body,user_id:currentUser.id};
+    }
+  }
+  const url=`https://bphvxxfoyopnqeuoecmu.supabase.co/rest/v1/${table}${params?'?'+params:''}`;
+  const isBatch=method==='POST'&&Array.isArray(body);
+  const prefer=method==='POST'?(isBatch?'return=minimal':'return=representation'):'';
+  const opts={method,headers:{
+    'apikey':SUPA_KEY,
+    'Authorization':'Bearer '+currentUser.token,
+    'Content-Type':'application/json',
+    ...(prefer?{'Prefer':prefer}:{})
+  }};
+  if(body)opts.body=JSON.stringify(body);
+  const r=await fetch(url,opts);
+  if(r.status===401){authLogout();throw new Error("Session expirée");}
+  if(!r.ok){const e=await r.text();throw new Error(table+' '+method+': '+e);}
+  if(method==='DELETE'||r.status===204)return null;
+  const txt=await r.text();
+  if(!txt)return null;
+  try{return JSON.parse(txt);}catch(e){return null;}
+}
+
 async function _doLoadDB(){
   showLoading(true);
   try{
