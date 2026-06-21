@@ -671,22 +671,7 @@ function renderDashboard(){
     ${bqRows||'<p style="color:#94a3b8;font-size:13px">Aucune banque</p>'}
   </div>`;
 
-  // DEBUG button - temporary
-  const debugBtn=`<div class="card card-p" style="margin-bottom:12px;background:#fef3c7;border-color:#fcd34d">
-    <div style="font-size:12px;font-weight:600;color:#92400e;margin-bottom:8px">🔍 Debug soldes (temporaire)</div>
-    <div style="font-size:11px;font-family:monospace;color:#1e293b">
-      <div style="margin-bottom:6px">Total transactions chargées: ${DB.transactions.length}</div>
-      ${DB.banques.map(b=>{
-        const txB=DB.transactions.filter(t=>+t.bqId===+b.id);
-        const mvt=txB.reduce((s,t)=>s+(+t.credit)-(+t.debit),0);
-        return `<div>${esc(b.nom)}: soldeInit=${b.soldeInit} | nb=${txB.length} | mvt=${mvt.toFixed(2)} | global=${((b.soldeInit||0)+mvt).toFixed(2)}</div>`;
-      }).join("")}
-      <div style="margin-top:6px">Doublons CA 14.99: ${DB.transactions.filter(t=>+t.bqId===14613&&+t.debit===14.99&&t.date==='2024-12-05').length} trouvés</div>
-    </div>
-    <button class="btn btn-ghost btn-xs" style="margin-top:8px" onclick="this.closest('.card').remove()">Fermer</button>
-  </div>`;
-
-  return alertesHTML+banqueSelHTML+debugBtn+kpiHTML+crossTable+bqCard;
+  return alertesHTML+banqueSelHTML+kpiHTML+crossTable+bqCard;
 }
 
 // ═══════════════════════════════════════════
