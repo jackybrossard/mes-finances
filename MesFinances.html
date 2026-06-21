@@ -214,7 +214,8 @@ function freshDefault(){
 // ── Load all records with pagination (any table) ──
 async function loadAllPages(table,order){
   let all=[];let from=0;const pageSize=1000;
-  while(true){
+  let maxPages=20;
+  while(maxPages-->0){
     const page=await supa('GET',table,'',`order=${order}&limit=${pageSize}&offset=${from}`);
     if(!page||page.length===0)break;
     all=[...all,...page];
@@ -229,14 +230,15 @@ async function loadAllTransactions(){
   let all=[];
   let from=0;
   const pageSize=1000;
-  while(true){
-    const page=await supa('GET','transactions','',
-      `order=date.desc&limit=${pageSize}&offset=${from}`);
+  let maxPages=50; // safety limit
+  while(maxPages-->0){
+    const page=await supa('GET','transactions','',`order=id.desc&limit=${pageSize}&offset=${from}`);
     if(!page||page.length===0)break;
     all=[...all,...page];
     if(page.length<pageSize)break;
     from+=pageSize;
   }
+  console.log(`Loaded ${all.length} transactions in ${Math.ceil(all.length/pageSize)} pages`);
   return all;
 }
 
