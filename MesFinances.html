@@ -957,22 +957,36 @@ function prochaineDateRecurrent(r){
   const now=new Date();
   const an=now.getFullYear();
   const mois=now.getMonth()+1;
-  if(r.freq==="mensuel"){
+  if(["mensuel","bimestriel","trimestriel","semestriel"].includes(r.freq)){
     const j=r.jour||1;
-    // Si déjà intégré ce mois-ci, passer au mois suivant
+    const intervalMois={mensuel:1,bimestriel:2,trimestriel:3,semestriel:6}[r.freq]||1;
     const dernier=r.derniereIntegration||r.derniere_integration||null;
-    const moisRef=dernier?dernier.slice(0,7):null;
-    const moisCourant=`${an}-${String(mois).padStart(2,'0')}`;
-    const startMois=(moisRef&&moisRef>=moisCourant)?
-      (()=>{const d=new Date(moisRef+'-01');d.setMonth(d.getMonth()+1);return d.getFullYear()*100+(d.getMonth()+1);})():
-      an*100+mois;
-    const an1=Math.floor(startMois/100);
-    const m1=startMois%100;
-    const d1=buildDateMensuel(an1,m1,j);
-    const an2=m1===12?an1+1:an1;
-    const m2=m1===12?1:m1+1;
-    const d2=buildDateMensuel(an2,m2,j);
-    return d1>=t0?d1:d2;
+    // Calculer la prochaine date après la dernière intégration
+    if(dernier){
+      const d=new Date(dernier+'-01');
+      d.setMonth(d.getMonth()+intervalMois);
+      const an1=d.getFullYear();
+      const m1=d.getMonth()+1;
+      const next=buildDateMensuel(an1,m1,j);
+      if(next>=t0)return next;
+      // Si dépassée, continuer à avancer
+      let dd=new Date(next+'-01')||new Date();
+      while(true){
+        dd.setMonth(dd.getMonth()+intervalMois);
+        const candidate=buildDateMensuel(dd.getFullYear(),dd.getMonth()+1,j);
+        if(candidate>=t0)return candidate;
+        if(dd.getFullYear()>an+2)break;
+      }
+    }
+    // Pas de dernière intégration - trouver la prochaine occurrence
+    let searchMois=mois;let searchAn=an;
+    for(let i=0;i<12;i++){
+      const candidate=buildDateMensuel(searchAn,searchMois,j);
+      if(candidate>=t0)return candidate;
+      searchMois+=intervalMois;
+      while(searchMois>12){searchMois-=12;searchAn++;}
+    }
+    return buildDateMensuel(an,mois,j);
   }
   if(r.freq==="annuel"){
     const d1=`${an}-${r.dateFixe.slice(5)}`;
@@ -1014,7 +1028,7 @@ function renderRecurrents(){
   const rows=recsFiltered.map(r=>{
     const benef=find(DB.beneficiaires,r.bId);const bq=find(DB.banques,r.bqId);const code=find(DB.codes,r.cId);
     const dp=prochaineDateRecurrent(r);
-    const fl={mensuel:"Mensuel",annuel:"Annuel",unique:"Date fixe"}[r.freq]||r.freq;
+    const fl={mensuel:"Mensuel",bimestriel:"Bimestriel",trimestriel:"Trimestriel",semestriel:"Semestriel",annuel:"Annuel",unique:"Date fixe"}[r.freq]||r.freq;
     const jourLabel=r.freq==="mensuel"?(r.jour===99?"fin de mois":"le "+r.jour):"";;
     return `<div class="card card-p" style="margin-bottom:10px;opacity:${r.actif?1:.5}">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
@@ -1063,9 +1077,12 @@ function showRecurrentModal(r){
     <div class="form-group"><label>Nom *</label><input type="text" id="rec-nom" value="${esc(r?.nom||"")}"/></div>
     <div class="form-group"><label>Fréquence *</label>
       <select id="rec-freq" onchange="toggleRecFreq()">
-        <option value="mensuel" ${freq==="mensuel"?"selected":""}>Mensuel</option>
-        <option value="annuel"  ${freq==="annuel"?"selected":""}>Annuel</option>
-        <option value="unique"  ${freq==="unique"?"selected":""}>Date fixe unique</option>
+        <option value="mensuel"     ${freq==="mensuel"?"selected":""}>Mensuel</option>
+        <option value="bimestriel"  ${freq==="bimestriel"?"selected":""}>Bimestriel (tous les 2 mois)</option>
+        <option value="trimestriel" ${freq==="trimestriel"?"selected":""}>Trimestriel (tous les 3 mois)</option>
+        <option value="semestriel"  ${freq==="semestriel"?"selected":""}>Semestriel (tous les 6 mois)</option>
+        <option value="annuel"      ${freq==="annuel"?"selected":""}>Annuel</option>
+        <option value="unique"      ${freq==="unique"?"selected":""}>Date fixe unique</option>
       </select></div>
     <div id="rec-jour-wrap" class="form-group" style="${freq==="mensuel"?"":"display:none"}">
       <label>Jour du mois</label>
@@ -1114,8 +1131,9 @@ function showRecurrentModal(r){
 }
 function toggleRecFreq(){
   const f=document.getElementById("rec-freq").value;
-  document.getElementById("rec-jour-wrap").style.display=f==="mensuel"?"":"none";
-  document.getElementById("rec-date-wrap").style.display=f!=="mensuel"?"":"none";
+  const isMonthly=["mensuel","bimestriel","trimestriel","semestriel"].includes(f);
+  document.getElementById("rec-jour-wrap").style.display=isMonthly?"":"none";
+  document.getElementById("rec-date-wrap").style.display=!isMonthly?"":"none";
 }
 async function saveRecurrent(){
   const nom=(document.getElementById("rec-nom").value||"").trim();
@@ -1123,8 +1141,8 @@ async function saveRecurrent(){
   const freq=document.getElementById("rec-freq").value;
   const row={
     nom,freq,
-    jour:freq==="mensuel"?+document.getElementById("rec-jour").value:null,
-    date_fixe:freq!=="mensuel"?document.getElementById("rec-date").value:null,
+    jour:["mensuel","bimestriel","trimestriel","semestriel"].includes(freq)?+document.getElementById("rec-jour").value:null,
+    date_fixe:!["mensuel","bimestriel","trimestriel","semestriel"].includes(freq)?document.getElementById("rec-date").value:null,
     beneficiaire_id:+selGetValue('rec-benef')||null,
     nature_id:+selGetValue('rec-nature')||null,
     banque_id:+selGetValue('rec-bq')||null,
@@ -1458,6 +1476,9 @@ async function confirmEditBanque(id){
 
 // Search state for ref tables
 const refSearch={};
+// Merge state for ref tables
+const mergeSelected={beneficiaires:new Set(),natures:new Set()};
+let mergeMode={beneficiaires:false,natures:false};
 
 function renderRefTableOnly(key,field,title){
   // Update only the ref table div without full render (preserves search input focus)
@@ -1481,16 +1502,37 @@ function renderRefTable(title,key,field){
   const q=(refSearch[key]||"").toLowerCase();
   const allItems=sortAlpha(DB[key],field);
   const items=q?allItems.filter(x=>(x[field]||"").toLowerCase().includes(q)):allItems;
+  const isMerge=mergeMode[key]||false;
+  const sel=mergeSelected[key]||new Set();
   const rows=items.map(item=>`
-    <div class="ref-row" id="ref-row-${key}-${item.id}">
+    <div class="ref-row" id="ref-row-${key}-${item.id}" style="${isMerge&&sel.has(item.id)?'background:#eef2ff;border-radius:8px;':''}">
+      ${isMerge?`<div class="${sel.has(item.id)?'sel-box on':'sel-box'}" onclick="toggleMergeSel('${key}',${item.id})">${sel.has(item.id)?'✓':''}</div>`:''}
       <span class="ref-label">${esc(item[field])}</span>
-      <div class="ref-actions">
+      ${!isMerge?`<div class="ref-actions">
         <button class="icon-btn" onclick="startRefEdit('${key}',${item.id},'${field}')">✏️</button>
         <button class="icon-btn" onclick="deleteRefItem('${key}',${item.id})">🗑️</button>
-      </div>
+      </div>`:''}
     </div>`).join("");
+
+  const mergeBar=isMerge?`<div style="background:#eef2ff;border-radius:10px;padding:10px;margin-bottom:8px;font-size:12px">
+    <div style="font-weight:600;color:#4338ca;margin-bottom:6px">
+      Mode fusion — ${sel.size} sélectionné${sel.size>1?'s':''}
+    </div>
+    <p style="color:#64748b;font-size:11px;margin-bottom:8px">Cochez les doublons à fusionner, puis choisissez la cible</p>
+    ${sel.size>=2?`<div class="form-group" style="margin-bottom:8px"><label>Fusionner vers</label>
+      <select id="merge-target-${key}">
+        ${[...sel].map(id=>{const it=find(DB[key],id);return it?`<option value="${id}">${esc(it[field])}</option>`:''}).join("")}
+      </select></div>
+      <button class="btn btn-primary btn-sm" style="width:100%;margin-bottom:6px" onclick="doMerge('${key}','${field}')">🔀 Fusionner</button>`:''}
+    <button class="btn btn-ghost btn-sm" style="width:100%" onclick="mergeMode['${key}']=false;mergeSelected['${key}']=new Set();render()">Annuler</button>
+  </div>`:'';
+
   return `<div class="card card-p" style="margin-bottom:12px">
-    <div style="font-size:13px;font-weight:600;margin-bottom:8px">${title} <span style="font-size:11px;color:#94a3b8;font-weight:400">(${allItems.length})</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <div style="font-size:13px;font-weight:600">${title} <span style="font-size:11px;color:#94a3b8;font-weight:400">(${allItems.length})</span></div>
+      ${!isMerge?`<button class="btn btn-ghost btn-xs" onclick="mergeMode['${key}']=true;mergeSelected['${key}']=new Set();render()" title="Fusionner des doublons">🔀 Fusionner</button>`:''}
+    </div>
+    ${mergeBar}
     <div style="position:relative;margin-bottom:8px">
       <span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:13px">🔍</span>
       <input type="text" placeholder="Rechercher…" value="${esc(refSearch[key]||'')}"
@@ -1500,12 +1542,12 @@ function renderRefTable(title,key,field){
     <div id="ref-table-${key}" style="max-height:280px;overflow-y:auto;margin-bottom:8px">
       ${rows||`<p style="font-size:12px;color:#94a3b8;padding:6px">${q?"Aucun résultat":"Aucun élément"}</p>`}
     </div>
-    <div style="border-top:1px solid #f1f5f9;padding-top:8px">
+    ${!isMerge?`<div style="border-top:1px solid #f1f5f9;padding-top:8px">
       <div class="add-quick">
         <input type="text" id="add-${key}" placeholder="Nouveau…" onkeydown="if(event.key==='Enter')addRefItem('${key}','${field}')"/>
         <button class="btn btn-primary btn-sm" onclick="addRefItem('${key}','${field}')">+</button>
       </div>
-    </div>
+    </div>`:''}
   </div>`;
 }
 
@@ -1530,6 +1572,53 @@ function renderRefTableCode(title){
       </div>
     </div>
   </div>`;
+}
+
+function toggleMergeSel(key,id){
+  if(!mergeSelected[key])mergeSelected[key]=new Set();
+  if(mergeSelected[key].has(id))mergeSelected[key].delete(id);
+  else mergeSelected[key].add(id);
+  render();
+}
+
+async function doMerge(key,field){
+  const sel=mergeSelected[key];
+  if(!sel||sel.size<2){showToast("Sélectionnez au moins 2 éléments",true);return;}
+  const targetId=+document.getElementById("merge-target-"+key)?.value;
+  if(!targetId){showToast("Choisissez la cible",true);return;}
+  const target=find(DB[key],targetId);
+  if(!target){showToast("Cible introuvable",true);return;}
+  const toDelete=[...sel].filter(id=>+id!==+targetId);
+  const nbTx=DB.transactions.filter(t=>{
+    const fk=key==='beneficiaires'?'bId':'nId';
+    return toDelete.includes(+t[fk]);
+  }).length;
+  askConfirm(
+    `Fusionner ${sel.size} éléments ?`,
+    `${nbTx} transaction${nbTx>1?'s':''} seront rattachées à "${target[field]}". Les ${toDelete.length} doublon${toDelete.length>1?'s':''} seront supprimés.`,
+    async function(){
+      try{
+        showLoading(true);
+        const fkCol=key==='beneficiaires'?'beneficiaire_id':'nature_id';
+        const fk=key==='beneficiaires'?'bId':'nId';
+        // Update all transactions pointing to duplicates
+        for(const dupId of toDelete){
+          const txIds=DB.transactions.filter(t=>+t[fk]===+dupId).map(t=>t.id);
+          if(txIds.length>0){
+            await supa('PATCH','transactions',{[fkCol]:targetId},`${fkCol}=eq.${dupId}`);
+          }
+          // Delete the duplicate
+          await supa('DELETE',key,'',`id=eq.${dupId}`);
+        }
+        mergeMode[key]=false;
+        mergeSelected[key]=new Set();
+        await loadDB();render();
+        showToast(`Fusion terminée ✅ — ${toDelete.length} doublon${toDelete.length>1?'s':''} supprimé${toDelete.length>1?'s':''}`);
+      }catch(e){showToast("Erreur: "+e.message,true);}
+      finally{showLoading(false);}
+    },
+    "Fusionner","#6366f1"
+  );
 }
 
 async function addRefItem(key,field){
