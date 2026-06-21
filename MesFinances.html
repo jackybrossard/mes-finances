@@ -1514,8 +1514,8 @@ function renderRefTable(title,key,field){
       </div>`:''}
     </div>`).join("");
 
-  const mergeBar=isMerge?`<div style="background:#eef2ff;border-radius:10px;padding:10px;margin-bottom:8px;font-size:12px">
-    <div style="font-weight:600;color:#4338ca;margin-bottom:6px">
+  const mergeBar=isMerge?`<div class="merge-bar" style="background:#eef2ff;border-radius:10px;padding:10px;margin-bottom:8px;font-size:12px">
+    <div style="font-weight:600;color:#4338ca;margin-bottom:6px" class="merge-count">
       Mode fusion — ${sel.size} sélectionné${sel.size>1?'s':''}
     </div>
     <p style="color:#64748b;font-size:11px;margin-bottom:8px">Cochez les doublons à fusionner, puis choisissez la cible</p>
@@ -1523,7 +1523,7 @@ function renderRefTable(title,key,field){
       <select id="merge-target-${key}">
         ${[...sel].map(id=>{const it=find(DB[key],id);return it?`<option value="${id}">${esc(it[field])}</option>`:''}).join("")}
       </select></div>
-      <button class="btn btn-primary btn-sm" style="width:100%;margin-bottom:6px" onclick="doMerge('${key}','${field}')">🔀 Fusionner</button>`:''}
+      <button class="btn btn-primary btn-sm merge-btn-confirm" style="width:100%;margin-bottom:6px" onclick="doMerge('${key}','${field}')">🔀 Fusionner</button>`:''}
     <button class="btn btn-ghost btn-sm" style="width:100%" onclick="mergeMode['${key}']=false;mergeSelected['${key}']=new Set();render()">Annuler</button>
   </div>`:'';
 
@@ -1578,7 +1578,50 @@ function toggleMergeSel(key,id){
   if(!mergeSelected[key])mergeSelected[key]=new Set();
   if(mergeSelected[key].has(id))mergeSelected[key].delete(id);
   else mergeSelected[key].add(id);
-  render();
+  // Update only the clicked row without full render
+  const row=document.getElementById("ref-row-"+key+"-"+id);
+  const sel=mergeSelected[key].has(id);
+  if(row){
+    row.style.background=sel?"#eef2ff":"";
+    row.style.borderRadius=sel?"8px":"";
+    const box=row.querySelector(".sel-box");
+    if(box){box.className="sel-box"+(sel?" on":"");box.textContent=sel?"✓":"";}
+  }
+  // Update the merge bar count and target select
+  const card=document.getElementById("ref-table-"+key)?.closest(".card");
+  if(card){
+    const countEl=card.querySelector(".merge-count");
+    if(countEl)countEl.textContent=mergeSelected[key].size+" sélectionné"+(mergeSelected[key].size>1?"s":"");
+    // Show/hide fusion button
+    const mergeBtn=card.querySelector(".merge-btn-confirm");
+    if(mergeSelected[key].size>=2){
+      if(!mergeBtn){
+        // Re-render just the merge bar
+        const mergeBarEl=card.querySelector(".merge-bar");
+        if(mergeBarEl)renderMergeBar(key,mergeBarEl);
+      }
+    } else {
+      if(mergeBtn)mergeBtn.style.display="none";
+    }
+  }
+}
+
+function renderMergeBar(key,container){
+  const sel=mergeSelected[key]||new Set();
+  const field=key==="beneficiaires"?"nom":"l";
+  const targetOpts=[...sel].map(id=>{
+    const it=find(DB[key],+id);
+    return it?`<option value="${id}">${esc(it[field])}</option>`:'';
+  }).join("");
+  container.innerHTML=`
+    <div style="font-weight:600;color:#4338ca;margin-bottom:6px" class="merge-count">
+      ${sel.size} sélectionné${sel.size>1?'s':''}
+    </div>
+    <p style="color:#64748b;font-size:11px;margin-bottom:8px">Cochez les doublons, puis choisissez la cible</p>
+    ${sel.size>=2?`<div class="form-group" style="margin-bottom:8px"><label>Fusionner vers</label>
+      <select id="merge-target-${key}">${targetOpts}</select></div>
+      <button class="btn btn-primary btn-sm merge-btn-confirm" style="width:100%;margin-bottom:6px" onclick="doMerge('${key}','${field}')">🔀 Fusionner</button>`:''}
+    <button class="btn btn-ghost btn-sm" style="width:100%" onclick="mergeMode['${key}']=false;mergeSelected['${key}']=new Set();render()">Annuler</button>`;
 }
 
 async function doMerge(key,field){
