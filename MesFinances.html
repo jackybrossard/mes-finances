@@ -16,8 +16,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .saved{color:#10b981;}
 #tabs{position:fixed;bottom:0;left:0;right:0;z-index:30;background:#fff;border-top:1px solid #e2e8f0;border-bottom:none;display:flex;overflow-x:auto;padding:0 4px;padding-bottom:env(safe-area-inset-bottom);}
 .tab-btn{flex:1;padding:8px 4px 10px;font-size:10px;}
-.tab-btn{flex-shrink:0;padding:10px 10px;font-size:11px;font-weight:600;color:#94a3b8;border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;}
-.tab-btn.active{color:#6366f1;border-bottom-color:#6366f1;}
+.tab-btn{flex-shrink:0;padding:6px 4px 4px;font-size:10px;font-weight:600;color:#94a3b8;border:none;background:none;cursor:pointer;border-top:3px solid transparent;white-space:nowrap;flex:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px;}
+.tab-btn.active{color:#6366f1;border-top-color:#6366f1;background:#f5f3ff;}
 #content{max-width:640px;margin:0 auto;padding:16px 14px 100px;}
 .card{background:#fff;border-radius:16px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.04);}
 .card-p{padding:14px;}
@@ -140,11 +140,11 @@ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   <button onclick="authLogout()" style="font-size:11px;color:#94a3b8;border:none;background:none;cursor:pointer;font-weight:600;">Déconnexion</button>
 </div>
 <div id="tabs">
-  <button class="tab-btn active" data-tab="dashboard" onclick="switchTab(this)">📊 Tableau de bord</button>
-  <button class="tab-btn" data-tab="transactions" onclick="switchTab(this)">📋 Transactions</button>
-  <button class="tab-btn" data-tab="recurrents" onclick="switchTab(this)">🔄 Récurrents</button>
-  <button class="tab-btn" data-tab="budget" onclick="switchTab(this)">💼 Budget</button>
-  <button class="tab-btn" data-tab="parametres" onclick="switchTab(this)">⚙️ Paramètres</button>
+  <button class="tab-btn active" data-tab="dashboard" onclick="switchTab(this)"><span style="font-size:16px">📊</span><span>Bord</span></button>
+  <button class="tab-btn" data-tab="transactions" onclick="switchTab(this)"><span style="font-size:16px">📋</span><span>Txns</span></button>
+  <button class="tab-btn" data-tab="recurrents" onclick="switchTab(this)"><span style="font-size:16px">🔄</span><span>Récurr.</span></button>
+  <button class="tab-btn" data-tab="budget" onclick="switchTab(this)"><span style="font-size:16px">💼</span><span>Budget</span></button>
+  <button class="tab-btn" data-tab="parametres" onclick="switchTab(this)"><span style="font-size:16px">⚙️</span><span>Params</span></button>
 </div>
 <div id="content"></div>
 
@@ -831,18 +831,18 @@ function renderTransactions(){
   }).join("")||'<p style="text-align:center;color:#94a3b8;padding:32px 0;font-size:13px">Aucune transaction trouvée</p>';
 
   return `
-    <div style="position:sticky;top:57px;z-index:20;background:#f1f5f9;padding:8px 0 4px;margin:-16px -14px 10px;padding-left:14px;padding-right:14px;">
-      <div style="display:flex;gap:8px;margin-bottom:${txShowF?'8px':'0'}">
-        <div class="search-wrap">
+    <div style="position:sticky;top:0;z-index:20;background:#f1f5f9;padding:10px 0 6px;margin:-16px -14px 10px;padding-left:14px;padding-right:14px;box-shadow:0 2px 8px rgba(0,0,0,.06);">
+      <div style="display:flex;gap:8px;margin-bottom:6px">
+        <div class="search-wrap" style="flex:1">
           <span class="search-icon">🔍</span>
           <input type="text" id="tx-search-inp" placeholder="Rechercher…" value="${esc(txSearch)}" oninput="txSearchInput(this.value)" style="padding-left:34px"/>
         </div>
-        <button class="btn ${txShowF?'btn-primary':'btn-ghost'} btn-sm" onclick="txShowF=!txShowF;render()">⚙️</button>
-        <button class="btn ${txSelectMode?'btn-amber':'btn-ghost'} btn-sm" onclick="txSelectMode=!txSelectMode;txSelected=new Set();render()" title="Sélection multiple">☑️</button>
+        <button class="btn ${txShowF?'btn-primary':'btn-ghost'} btn-sm" onclick="txShowF=!txShowF;render()">⚙️ Filtres</button>
+        <button class="btn ${txSelectMode?'btn-amber':'btn-ghost'} btn-sm" onclick="txSelectMode=!txSelectMode;txSelected=new Set();render()">☑️</button>
       </div>
-      ${filterBar}
+      ${txShowF?filterBar:''}
       ${bulkBar}
-      <p style="font-size:11px;color:#94a3b8;margin-top:4px" id="tx-count-label">${txs.length} transaction${txs.length>1?'s':''} &nbsp;|&nbsp; ✅ ${txs.filter(t=>t.ok).length} vérifiée${txs.filter(t=>t.ok).length>1?'s':''}</p>
+      <p style="font-size:11px;color:#94a3b8" id="tx-count-label">${txs.length} transaction${txs.length>1?'s':''} &nbsp;|&nbsp; ✅ ${txs.filter(t=>t.ok).length} vérifiée${txs.filter(t=>t.ok).length>1?'s':''}</p>
     </div>
     <div id="tx-list-wrap">${cards}</div>`;
 }
@@ -1054,11 +1054,16 @@ function renderRecurrents(){
       </div>
     </div>`;
   }).join("")||'<p style="text-align:center;color:#94a3b8;padding:24px 0;font-size:13px">Aucune opération récurrente</p>';
-  return `${banner}${filtreBar}
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-      <p style="font-size:13px;font-weight:600;color:#475569">${recsFiltered.length} opération${recsFiltered.length>1?'s':''}${recFBq?' — '+esc(bqNom):''}</p>
-      <button class="btn btn-primary btn-sm" onclick="openNewRecurrent()">＋ Nouvelle</button>
-    </div>${rows}`;
+  return `
+    <div style="position:sticky;top:0;z-index:20;background:#f1f5f9;padding:10px 0 6px;margin:-16px -14px 10px;padding-left:14px;padding-right:14px;box-shadow:0 2px 8px rgba(0,0,0,.06);">
+      ${banner}
+      ${filtreBar}
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <p style="font-size:13px;font-weight:600;color:#475569">${recsFiltered.length} opération${recsFiltered.length>1?'s':''}${recFBq?' — '+esc(bqNom):''}</p>
+        <button class="btn btn-primary btn-sm" onclick="openNewRecurrent()">＋ Nouvelle</button>
+      </div>
+    </div>
+    ${rows}`;
 }
 
 let editingRecId=null;
