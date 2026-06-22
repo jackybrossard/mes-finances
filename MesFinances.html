@@ -485,10 +485,25 @@ function editTitle(){
   document.getElementById("modal-overlay").style.display="flex";
   setTimeout(()=>{const i=document.getElementById("new-title");if(i){i.focus();i.select();}},100);
 }
-function saveTitle(){
+async function saveTitle(){
   const v=(document.getElementById("new-title").value||"").trim();
   if(!v)return;
-  DB.appTitle=v;saveDB();closeModal();showToast("Titre modifié");
+  try{
+    const existing=await supa('GET','config','','cle=eq.appTitle&limit=1');
+    if(existing&&existing.length>0){
+      await supa('PATCH','config',{valeur:v},'cle=eq.appTitle');
+    } else {
+      await supa('POST','config',{cle:'appTitle',valeur:v});
+    }
+    DB.appTitle=v;
+    updateHeader();
+    document.title=v;
+    closeModal();
+    showToast("Titre modifié ✅");
+  }catch(e){
+    showToast("Erreur titre: "+e.message,true);
+    console.error("saveTitle:",e);
+  }
 }
 
 // ═══════════════════════════════════════════
@@ -831,18 +846,18 @@ function renderTransactions(){
   }).join("")||'<p style="text-align:center;color:#94a3b8;padding:32px 0;font-size:13px">Aucune transaction trouvée</p>';
 
   return `
-    <div style="position:sticky;top:0;z-index:20;background:#f1f5f9;padding:10px 0 6px;margin:-16px -14px 10px;padding-left:14px;padding-right:14px;box-shadow:0 2px 8px rgba(0,0,0,.06);">
+    <div id="tx-sticky-header" style="position:sticky;top:0;z-index:20;background:#f1f5f9;padding:10px 14px 8px;margin:-16px -14px 12px;box-shadow:0 2px 8px rgba(0,0,0,.07);">
       <div style="display:flex;gap:8px;margin-bottom:6px">
         <div class="search-wrap" style="flex:1">
           <span class="search-icon">🔍</span>
           <input type="text" id="tx-search-inp" placeholder="Rechercher…" value="${esc(txSearch)}" oninput="txSearchInput(this.value)" style="padding-left:34px"/>
         </div>
-        <button class="btn ${txShowF?'btn-primary':'btn-ghost'} btn-sm" onclick="txShowF=!txShowF;render()">⚙️ Filtres</button>
+        <button class="btn ${txShowF?'btn-primary':'btn-ghost'} btn-sm" onclick="txShowF=!txShowF;render()">⚙️</button>
         <button class="btn ${txSelectMode?'btn-amber':'btn-ghost'} btn-sm" onclick="txSelectMode=!txSelectMode;txSelected=new Set();render()">☑️</button>
       </div>
       ${txShowF?filterBar:''}
       ${bulkBar}
-      <p style="font-size:11px;color:#94a3b8" id="tx-count-label">${txs.length} transaction${txs.length>1?'s':''} &nbsp;|&nbsp; ✅ ${txs.filter(t=>t.ok).length} vérifiée${txs.filter(t=>t.ok).length>1?'s':''}</p>
+      <p style="font-size:11px;color:#94a3b8;margin-top:2px" id="tx-count-label">${txs.length} transaction${txs.length>1?'s':''} &nbsp;|&nbsp; ✅ ${txs.filter(t=>t.ok).length} vérifiée${txs.filter(t=>t.ok).length>1?'s':''}</p>
     </div>
     <div id="tx-list-wrap">${cards}</div>`;
 }
@@ -1055,7 +1070,7 @@ function renderRecurrents(){
     </div>`;
   }).join("")||'<p style="text-align:center;color:#94a3b8;padding:24px 0;font-size:13px">Aucune opération récurrente</p>';
   return `
-    <div style="position:sticky;top:0;z-index:20;background:#f1f5f9;padding:10px 0 6px;margin:-16px -14px 10px;padding-left:14px;padding-right:14px;box-shadow:0 2px 8px rgba(0,0,0,.06);">
+    <div style="position:sticky;top:0;z-index:20;background:#f1f5f9;padding:10px 14px 8px;margin:-16px -14px 12px;box-shadow:0 2px 8px rgba(0,0,0,.07);">
       ${banner}
       ${filtreBar}
       <div style="display:flex;justify-content:space-between;align-items:center">
@@ -1489,21 +1504,28 @@ const mergeSelected={beneficiaires:new Set(),natures:new Set()};
 let mergeMode={beneficiaires:false,natures:false};
 
 function renderRefTableOnly(key,field,title){
-  // Update only the ref table div without full render (preserves search input focus)
   const container=document.getElementById('ref-table-'+key);
   if(!container)return;
   const q=(refSearch[key]||"").toLowerCase();
   const allItems=sortAlpha(DB[key],field);
   const items=q?allItems.filter(x=>(x[field]||"").toLowerCase().includes(q)):allItems;
+  const isMerge=mergeMode[key]||false;
+  const sel=mergeSelected[key]||new Set();
   const rows=items.map(item=>`
-    <div class="ref-row" id="ref-row-${key}-${item.id}">
+    <div class="ref-row" id="ref-row-${key}-${item.id}" style="${isMerge&&sel.has(item.id)?'background:#eef2ff;border-radius:8px;':''}">
+      ${isMerge?`<div class="${sel.has(item.id)?'sel-box on':'sel-box'}" onclick="toggleMergeSel('${key}',${item.id})">${sel.has(item.id)?'✓':''}</div>`:''}
       <span class="ref-label">${esc(item[field])}</span>
-      <div class="ref-actions">
+      ${!isMerge?`<div class="ref-actions">
         <button class="icon-btn" onclick="startRefEdit('${key}',${item.id},'${field}')">✏️</button>
         <button class="icon-btn" onclick="deleteRefItem('${key}',${item.id})">🗑️</button>
-      </div>
+      </div>`:''}
     </div>`).join("") || `<p style="font-size:12px;color:#94a3b8;padding:6px">${q?"Aucun résultat":"Aucun élément"}</p>`;
   container.innerHTML=rows;
+  // Update merge count without full render
+  if(isMerge){
+    const countEl=container.closest('.card')?.querySelector('.merge-count');
+    if(countEl)countEl.textContent='Mode fusion — '+sel.size+' sélectionné'+(sel.size>1?'s':'');
+  }
 }
 
 function renderRefTable(title,key,field){
