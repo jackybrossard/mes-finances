@@ -846,7 +846,7 @@ function renderTransactions(){
   }).join("")||'<p style="text-align:center;color:#94a3b8;padding:32px 0;font-size:13px">Aucune transaction trouvée</p>';
 
   return `
-    <div id="tx-sticky-header" style="position:sticky;top:0;z-index:20;background:#f1f5f9;padding:10px 14px 8px;margin:-16px -14px 12px;box-shadow:0 2px 8px rgba(0,0,0,.07);">
+    <div id="tx-sticky-header" style="position:sticky;top:85px;z-index:20;background:#f1f5f9;padding:10px 14px 8px;margin:-16px -14px 12px;box-shadow:0 2px 8px rgba(0,0,0,.07);">
       <div style="display:flex;gap:8px;margin-bottom:6px">
         <div class="search-wrap" style="flex:1">
           <span class="search-icon">🔍</span>
@@ -1070,7 +1070,7 @@ function renderRecurrents(){
     </div>`;
   }).join("")||'<p style="text-align:center;color:#94a3b8;padding:24px 0;font-size:13px">Aucune opération récurrente</p>';
   return `
-    <div style="position:sticky;top:0;z-index:20;background:#f1f5f9;padding:10px 14px 8px;margin:-16px -14px 12px;box-shadow:0 2px 8px rgba(0,0,0,.07);">
+    <div style="position:sticky;top:85px;z-index:20;background:#f1f5f9;padding:10px 14px 8px;margin:-16px -14px 12px;box-shadow:0 2px 8px rgba(0,0,0,.07);">
       ${banner}
       ${filtreBar}
       <div style="display:flex;justify-content:space-between;align-items:center">
