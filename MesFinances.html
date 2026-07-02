@@ -1,1 +1,2655 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+<title>💰 Mes Finances</title>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="MesFinances"/>
+<link rel="apple-touch-icon" href="data:image/png;base64,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"/>
+<link rel="icon" href="data:image/png;base64,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"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;-webkit-text-size-adjust:100%;}
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:2px;}
+#header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid #e2e8f0;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
+#header h1{font-size:15px;font-weight:700;cursor:pointer;}
+#header h1:hover{color:#6366f1;}
+#header p{font-size:11px;color:#94a3b8;margin-top:2px;}
+.saved{color:#10b981;}
+#tabs{position:fixed;bottom:0;left:0;right:0;z-index:30;background:#fff;border-top:1px solid #e2e8f0;border-bottom:none;display:flex;overflow-x:auto;padding:0 4px;padding-bottom:env(safe-area-inset-bottom);}
+.tab-btn{flex:1;padding:8px 4px 10px;font-size:10px;}
+.tab-btn{flex-shrink:0;padding:6px 4px 4px;font-size:10px;font-weight:600;color:#94a3b8;border:none;background:none;cursor:pointer;border-top:3px solid transparent;white-space:nowrap;flex:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px;}
+.tab-btn.active{color:#6366f1;border-top-color:#6366f1;background:#f5f3ff;}
+#content{max-width:640px;margin:0 auto;padding:16px 14px 100px;}
+.card{background:#fff;border-radius:16px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.card-p{padding:14px;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;border:none;}
+.btn-primary{background:#6366f1;color:#fff;}.btn-primary:hover{background:#4f46e5;}
+.btn-ghost{background:none;border:1px solid #e2e8f0;color:#475569;}.btn-ghost:hover{background:#f8fafc;}
+.btn-danger{background:none;border:1px solid #fecaca;color:#ef4444;}.btn-danger:hover{background:#fef2f2;}
+.btn-green{background:#10b981;color:#fff;}.btn-green:hover{background:#059669;}
+.btn-amber{background:#f59e0b;color:#fff;}.btn-amber:hover{background:#d97706;}
+.btn-sm{padding:6px 10px;font-size:11px;border-radius:8px;}
+.btn-xs{padding:4px 8px;font-size:10px;border-radius:6px;}
+.form-group{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;}
+.form-group label{font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.05em;}
+input[type=text],input[type=number],input[type=date],select{width:100%;border:1px solid #e2e8f0;border-radius:10px;padding:9px 12px;font-size:13px;background:#f8fafc;color:#1e293b;outline:none;-webkit-appearance:none;font-family:inherit;}
+input:focus,select:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.12);}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:50;display:flex;align-items:flex-end;justify-content:center;padding:16px;}
+@media(min-width:540px){.overlay{align-items:center;}}
+.modal{background:#fff;border-radius:24px;width:100%;max-width:500px;max-height:92vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.2);}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #f1f5f9;}
+.modal-header h2{font-size:16px;font-weight:700;}
+.modal-body{padding:18px;}
+.close-btn{width:30px;height:30px;border:none;background:#f1f5f9;border-radius:50%;cursor:pointer;font-size:16px;color:#64748b;}
+.badge{display:inline-block;font-size:10px;font-weight:600;padding:2px 7px;border-radius:20px;}
+.badge-indigo{background:#e0e7ff;color:#4338ca;}.badge-amber{background:#fef3c7;color:#92400e;}
+.badge-green{background:#d1fae5;color:#065f46;}.badge-red{background:#fee2e2;color:#991b1b;}
+.badge-orange{background:#ffedd5;color:#9a3412;}
+.kpi-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;}
+.kpi{background:#fff;border-radius:14px;border:1px solid #e2e8f0;padding:12px;}
+.kpi-label{font-size:10px;color:#94a3b8;font-weight:600;margin-bottom:4px;}
+.kpi-value{font-size:15px;font-weight:700;}
+.kpi.green{background:#f0fdf4;border-color:#bbf7d0;}.kpi.red{background:#fef2f2;border-color:#fecaca;}
+.text-green{color:#059669;}.text-red{color:#dc2626;}.text-emerald{color:#059669;}
+.tx-card{display:flex;align-items:flex-start;gap:10px;padding:12px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;margin-bottom:8px;}
+.tx-card.verified{border-left:3px solid #10b981;}
+.tx-card.selected{background:#eef2ff;border-color:#6366f1;}
+.tx-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
+.tx-icon.credit{background:#d1fae5;}.tx-icon.debit{background:#fee2e2;}
+.tx-info{flex:1;min-width:0;}
+.tx-title{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tx-meta{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px;align-items:center;font-size:11px;color:#94a3b8;}
+.check-box{width:22px;height:22px;border:2px solid #cbd5e1;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:all .15s;}
+.check-box.on{background:#10b981;border-color:#10b981;color:#fff;}
+.sel-box{width:18px;height:18px;border:2px solid #cbd5e1;border-radius:4px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.sel-box.on{background:#6366f1;border-color:#6366f1;color:#fff;font-size:11px;}
+.prog-bg{width:100%;background:#f1f5f9;border-radius:99px;height:8px;margin:6px 0;}
+.prog-bar{height:8px;border-radius:99px;transition:width .3s;}
+.prog-green{background:#10b981;}.prog-amber{background:#f59e0b;}.prog-red{background:#ef4444;}
+.search-wrap{position:relative;flex:1;}
+.search-wrap input{padding-left:34px;}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:14px;color:#94a3b8;pointer-events:none;}
+/* Searchable select */
+.sel-wrap{position:relative;}
+.sel-search{width:100%;border:1px solid #e2e8f0;border-radius:10px 10px 0 0;padding:8px 12px;font-size:13px;background:#fff;outline:none;border-bottom:none;}
+.sel-search:focus{border-color:#6366f1;}
+.sel-list{max-height:160px;overflow-y:auto;border:1px solid #6366f1;border-top:none;border-radius:0 0 10px 10px;background:#fff;position:absolute;width:100%;z-index:100;box-shadow:0 8px 20px rgba(0,0,0,.1);}
+.sel-opt{padding:8px 12px;font-size:13px;cursor:pointer;}
+.sel-opt:hover,.sel-opt.active{background:#eef2ff;color:#4338ca;}
+.sel-opt.new-opt{color:#6366f1;font-weight:600;border-top:1px solid #e2e8f0;}
+.sel-opt.selected-opt{background:#f0fdf4;font-weight:600;}
+.ref-row{display:flex;align-items:center;gap:6px;padding:6px;border-radius:8px;}
+.ref-row:hover{background:#f8fafc;}
+.ref-label{flex:1;font-size:13px;}
+.ref-actions{display:flex;gap:2px;}
+.ref-edit-row{display:flex;align-items:center;gap:4px;flex:1;}
+.ref-edit-row input{font-size:12px;padding:5px 8px;border-radius:7px;}
+.add-quick{display:flex;gap:6px;margin-top:6px;}
+.add-quick input{flex:1;font-size:12px;padding:7px 10px;border-style:dashed;}
+.icon-btn{width:28px;height:28px;border:none;background:none;border-radius:7px;cursor:pointer;font-size:13px;color:#94a3b8;}
+.icon-btn:hover{background:#f1f5f9;}
+.chart-bars{display:flex;align-items:flex-end;gap:4px;height:120px;padding:0 4px;}
+.chart-bar-group{flex:1;display:flex;gap:2px;align-items:flex-end;}
+.chart-bar{flex:1;border-radius:4px 4px 0 0;min-height:3px;}
+.chart-bar.cr{background:#10b981;}.chart-bar.db{background:#f87171;}
+.chart-labels{display:flex;gap:4px;padding:4px 4px 0;}
+.chart-label{flex:1;font-size:9px;color:#94a3b8;text-align:center;}
+.pie-legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.pie-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:3px;}
+.pie-item{display:flex;align-items:center;font-size:11px;color:#475569;}
+.scroll-top-btn{position:fixed;bottom:80px;right:16px;z-index:50;width:40px;height:40px;border-radius:50%;background:#6366f1;color:#fff;border:none;font-size:20px;cursor:pointer;box-shadow:0 4px 12px rgba(99,102,241,.4);display:none;align-items:center;justify-content:center;}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:100;display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:16px;font-size:13px;font-weight:600;color:#fff;box-shadow:0 8px 30px rgba(0,0,0,.18);white-space:nowrap;}
+.toast-ok{background:#059669;}.toast-err{background:#dc2626;}
+.alerte-card{background:#fffbeb;border:1px solid #fcd34d;border-radius:14px;padding:12px;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.alerte-urgent{background:#fef2f2;border-color:#fca5a5;}
+.import-zone{border:2px dashed #c7d2fe;border-radius:12px;padding:20px;text-align:center;color:#6366f1;cursor:pointer;font-size:13px;font-weight:500;}
+.import-zone:hover{background:#eef2ff;}
+.new-inline{display:none;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:10px;margin-top:6px;}
+.new-inline.show{display:block;}
+/* Auth screen */
+#auth-screen{position:fixed;inset:0;background:linear-gradient(135deg,#6366f1,#4f46e5 50%,#10b981);display:flex;align-items:center;justify-content:center;z-index:1000;padding:20px;}
+.auth-card{background:#fff;border-radius:28px;padding:40px 36px;width:100%;max-width:420px;box-shadow:0 30px 80px rgba(0,0,0,.25);}
+.auth-logo{text-align:center;font-size:60px;margin-bottom:12px;}
+.auth-title{text-align:center;font-size:24px;font-weight:800;color:#1e293b;margin-bottom:4px;}
+.auth-sub{text-align:center;font-size:13px;color:#94a3b8;margin-bottom:28px;}
+.auth-tabs{display:flex;background:#f1f5f9;border-radius:14px;padding:4px;margin-bottom:22px;}
+.auth-tab{flex:1;padding:10px;text-align:center;font-size:13px;font-weight:600;border-radius:10px;cursor:pointer;border:none;background:none;color:#64748b;transition:all .2s;}
+.auth-tab.active{background:#fff;color:#6366f1;box-shadow:0 2px 8px rgba(0,0,0,.1);}
+.auth-input{width:100%;border:1.5px solid #e2e8f0;border-radius:12px;padding:14px 16px;font-size:14px;outline:none;font-family:inherit;margin-bottom:14px;background:#f8fafc;transition:all .2s;}
+.auth-input:focus{border-color:#6366f1;background:#fff;box-shadow:0 0 0 3px rgba(99,102,241,.12);}
+.auth-btn{width:100%;padding:15px;border-radius:14px;border:none;background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;font-size:15px;font-weight:700;cursor:pointer;margin-top:6px;box-shadow:0 4px 15px rgba(99,102,241,.35);transition:all .2s;}
+.auth-btn:hover{transform:translateY(-1px);box-shadow:0 6px 25px rgba(99,102,241,.45);}
+.auth-err{background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:12px 14px;font-size:12px;color:#dc2626;margin-bottom:14px;display:none;}
+.user-badge{font-size:11px;color:#6366f1;font-weight:600;cursor:pointer;}
+.user-badge:hover{text-decoration:underline;}
+.bulk-bar{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#eef2ff;border-radius:12px;margin-bottom:10px;font-size:12px;font-weight:600;color:#4338ca;}
+@media(max-width:400px){.grid3{grid-template-columns:1fr 1fr;}.kpi-value{font-size:13px;}}
+</style>
+</head>
+<body>
+<div id="header">
+  <div>
+    <h1 id="app-title" onclick="editTitle()" title="Cliquer pour modifier">💶 Mes Finances</h1>
+    <p><span id="hdr-count">0</span> transactions • <span class="saved">sauvegardé</span></p>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <button id="logout-btn" onclick="authLogout()" style="display:none;width:32px;height:32px;border:none;background:#f1f5f9;border-radius:50%;cursor:pointer;font-size:16px;color:#64748b" title="Déconnexion">⏏️</button>
+    <button class="btn btn-primary" onclick="openNewTx()">＋ Saisir</button>
+  </div>
+</div>
+<div id="user-bar" style="display:none;position:sticky;top:57px;z-index:35;background:#f8fafc;border-bottom:1px solid #e2e8f0;padding:4px 16px;align-items:center;justify-content:space-between;">
+  <span id="user-email-display" style="font-size:11px;color:#6366f1;font-weight:600;cursor:pointer;"></span>
+</div>
+<div id="tabs">
+  <button class="tab-btn active" data-tab="dashboard" onclick="switchTab(this)"><span style="font-size:16px">📊</span><span>Bord</span></button>
+  <button class="tab-btn" data-tab="transactions" onclick="switchTab(this)"><span style="font-size:16px">📋</span><span>Txns</span></button>
+  <button class="tab-btn" data-tab="recurrents" onclick="switchTab(this)"><span style="font-size:16px">🔄</span><span>Récurr.</span></button>
+  <button class="tab-btn" data-tab="budget" onclick="switchTab(this)"><span style="font-size:16px">💼</span><span>Budget</span></button>
+  <button class="tab-btn" data-tab="parametres" onclick="switchTab(this)"><span style="font-size:16px">⚙️</span><span>Params</span></button>
+</div>
+<div id="content"></div>
 
+<!-- Auth Screen -->
+<div id="auth-screen">
+  <div class="auth-card">
+    <div class="auth-logo">💶</div>
+    <div class="auth-title" id="auth-app-title">Mes Finances</div>
+    <div class="auth-sub">Votre gestionnaire de comptes personnel</div>
+    <div class="auth-tabs">
+      <button class="auth-tab active" onclick="switchAuthTab('login')">Connexion</button>
+      <button class="auth-tab" onclick="switchAuthTab('signup')">Créer un compte</button>
+    </div>
+    <div id="auth-err" class="auth-err"></div>
+    <input type="email" id="auth-email" class="auth-input" placeholder="Email"/>
+    <input type="password" id="auth-pwd" class="auth-input" placeholder="Mot de passe" onkeydown="if(event.key==='Enter')authSubmit()"/>
+    <div id="auth-pwd2-wrap" style="display:none">
+      <input type="password" id="auth-pwd2" class="auth-input" placeholder="Confirmer le mot de passe"/>
+    </div>
+    <button class="auth-btn" id="auth-btn" onclick="authSubmit()">Se connecter</button>
+    <p style="text-align:center;font-size:11px;color:#94a3b8;margin-top:12px">
+      Mot de passe oublié ? <span style="color:#6366f1;cursor:pointer" onclick="authReset()">Réinitialiser</span>
+    </p>
+  </div>
+</div>
+
+<div id="modal-overlay" class="overlay" style="display:none" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header"><h2 id="modal-title"></h2><button class="close-btn" onclick="closeModal()">✕</button></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<div id="confirm-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#fff;border-radius:20px;padding:24px;max-width:340px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.2);">
+    <div style="font-size:28px;margin-bottom:10px">⚠️</div>
+    <p style="font-size:14px;font-weight:600;color:#1e293b;margin-bottom:6px" id="confirm-msg"></p>
+    <p style="font-size:12px;color:#94a3b8;margin-bottom:20px" id="confirm-sub"></p>
+    <div style="display:flex;gap:10px">
+      <button onclick="confirmCancel()" style="flex:1;padding:10px;border-radius:12px;border:1px solid #e2e8f0;background:#f8fafc;font-size:13px;font-weight:600;cursor:pointer">Annuler</button>
+      <button onclick="confirmOK()" id="confirm-ok-btn" style="flex:1;padding:10px;border-radius:12px;border:none;background:#ef4444;color:#fff;font-size:13px;font-weight:600;cursor:pointer">Supprimer</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast toast-ok" style="display:none"></div>
+<button class="scroll-top-btn" id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Remonter en haut">↑</button>
+
+<script>
+// ═══════════════════════════════════════════
+// SUPABASE CONFIG
+// ═══════════════════════════════════════════
+const SUPA_URL="https://bphvxxfoyopnqeuoecmu.supabase.co";
+const SUPA_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwaHZ4eGZveW9wbnFldW9lY211Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3NDMwMTcsImV4cCI6MjA5NjMxOTAxN30.npK3KoL61fMK7Zn7rzO3jEkJQAjAmzlf8_mmjgluOF4";
+const COLORS=["#6366f1","#f59e0b","#10b981","#ef4444","#3b82f6","#8b5cf6","#ec4899","#14b8a6"];
+
+// Supabase helper → défini dans la section Auth ci-dessous
+
+let DB={};
+let _id=500;
+const uid=()=>++_id;
+let _loading=false;
+let _loadingPromise=null;
+
+function freshDefault(){
+  return {appTitle:"💰 Mes Finances",banques:[],beneficiaires:[],natures:[],moyens:[],codes:[],transactions:[],budgets:{},recurrents:[]};
+}
+
+// ── Load all records with pagination (any table) ──
+async function loadAllPages(table,order){
+  let all=[];let from=0;const pageSize=1000;
+  let maxPages=20;
+  while(maxPages-->0){
+    const page=await supa('GET',table,'',`order=${order}&limit=${pageSize}&offset=${from}`);
+    if(!page||page.length===0)break;
+    all=[...all,...page];
+    if(page.length<pageSize)break;
+    from+=pageSize;
+  }
+  return all;
+}
+
+// ── Load all transactions with pagination ──
+async function loadAllTransactions(){
+  let all=[];
+  let from=0;
+  const pageSize=1000;
+  let maxPages=50; // safety limit
+  while(maxPages-->0){
+    const page=await supa('GET','transactions','',`order=id.desc&limit=${pageSize}&offset=${from}`);
+    if(!page||page.length===0)break;
+    all=[...all,...page];
+    if(page.length<pageSize)break;
+    from+=pageSize;
+  }
+  console.log(`Loaded ${all.length} transactions in ${Math.ceil(all.length/pageSize)} pages`);
+  return all;
+}
+
+// ── Map Supabase rows to DB format ──
+function mapTx(r){return{id:r.id,date:r.date,bId:r.beneficiaire_id,nId:r.nature_id,bqId:r.banque_id,mId:r.moyen_id,cId:r.code_id,debit:+(r.debit||0),credit:+(r.credit||0),ok:r.verifie||false,notes:r.notes||""};}
+function mapBq(r){return{id:r.id,nom:r.nom,soldeInit:+(r.solde_init||0)};}
+function mapBenef(r){return{id:r.id,nom:r.nom};}
+function mapNature(r){return{id:r.id,l:r.libelle};}
+function mapMoyen(r){return{id:r.id,l:r.libelle};}
+function mapCode(r){return{id:r.id,code:r.code,l:r.libelle,budgetMensuel:+(r.budget_mensuel||0)};}
+function mapRec(r){return{id:r.id,nom:r.nom,freq:r.freq,jour:r.jour,dateFixe:r.date_fixe,bId:r.beneficiaire_id,nId:r.nature_id,bqId:r.banque_id,mId:r.moyen_id,cId:r.code_id,debit:+(r.debit||0),credit:+(r.credit||0),actif:r.actif,derniereIntegration:r.derniere_integration||null,notes:r.notes||""};}
+
+// ── Load all data from Supabase ──
+async function loadDB(){
+  // Prevent concurrent loads
+  if(_loadingPromise){
+    try{await _loadingPromise;}catch(e){}
+    return;
+  }
+  try{
+    _loadingPromise=_doLoadDB();
+    await _loadingPromise;
+  }catch(e){
+    console.error("loadDB error:",e);
+  }finally{
+    _loadingPromise=null;
+  }
+}
+
+// ── Supabase REST API (with auth token) ──
+async function supa(method,table,body,params){
+  params=params||"";body=body||null;
+  if(!currentUser)throw new Error("Non connecté");
+  // Auto-inject user_id on INSERT (single or batch)
+  if(method==='POST'&&body){
+    if(Array.isArray(body)){
+      body=body.map(row=>({...row,user_id:currentUser.id}));
+    }else if(typeof body==='object'){
+      body={...body,user_id:currentUser.id};
+    }
+  }
+  const url=`https://bphvxxfoyopnqeuoecmu.supabase.co/rest/v1/${table}${params?'?'+params:''}`;
+  const isBatch=method==='POST'&&Array.isArray(body);
+  const prefer=method==='POST'?(isBatch?'return=minimal':'return=representation'):'';
+  const opts={method,headers:{
+    'apikey':SUPA_KEY,
+    'Authorization':'Bearer '+currentUser.token,
+    'Content-Type':'application/json',
+    ...(prefer?{'Prefer':prefer}:{})
+  }};
+  if(body)opts.body=JSON.stringify(body);
+  const r=await fetch(url,opts);
+  if(r.status===401){authLogout();throw new Error("Session expirée");}
+  if(!r.ok){const e=await r.text();throw new Error(table+' '+method+': '+e);}
+  if(method==='DELETE'||r.status===204)return null;
+  const txt=await r.text();
+  if(!txt)return null;
+  try{return JSON.parse(txt);}catch(e){return null;}
+}
+
+async function _doLoadDB(){
+  showLoading(true);
+  try{
+    const [bqs,benefs,nats,moys,cds,txs,recs,cfg]=await Promise.all([
+      loadAllPages('banques','nom.asc'),
+      loadAllPages('beneficiaires','nom.asc'),
+      loadAllPages('natures','libelle.asc'),
+      loadAllPages('moyens','libelle.asc'),
+      loadAllPages('codes','libelle.asc'),
+      loadAllTransactions(),
+      loadAllPages('recurrents','nom.asc'),
+      supa('GET','config','','select=cle,valeur'),
+    ]);
+    DB.banques=bqs.map(mapBq);
+    DB.beneficiaires=benefs.map(mapBenef);
+    DB.natures=nats.map(mapNature);
+    DB.moyens=moys.map(mapMoyen);
+    DB.codes=cds.map(mapCode);
+    // Deduplicate transactions by id
+    const txMap=new Map();
+    txs.forEach(t=>{txMap.set(t.id,t);});
+    DB.transactions=[...txMap.values()].map(mapTx);
+    DB.recurrents=recs.map(mapRec);
+    // budgets from codes
+    DB.budgets={};
+    DB.codes.forEach(c=>{DB.budgets[c.id]=c.budgetMensuel||0;});
+    // config
+    const titleRow=cfg.find(c=>c.cle==='appTitle');
+    DB.appTitle=titleRow?titleRow.valeur:"💰 Mes Finances";
+    updateHeader();
+  }catch(e){
+    console.error("Erreur chargement:",e);
+    if(e.message==="Non connecté"){
+      // Session expired - redirect to login
+      authLogout();
+    } else {
+      showToast("Erreur de connexion Supabase: "+e.message,true);
+    }
+  }finally{showLoading(false);}
+}  // end _doLoadDB
+
+function updateHeader(){
+  document.getElementById("hdr-count").textContent=DB.transactions.length;
+  document.getElementById("app-title").textContent=DB.appTitle||"💰 Mes Finances";
+  document.title=DB.appTitle||"💰 Mes Finances";
+}
+
+// saveDB kept for compatibility but does nothing (Supabase saves individually)
+function saveDB(){updateHeader();}
+
+function showLoading(on){
+  let el=document.getElementById("loading-bar");
+  if(!el){el=document.createElement("div");el.id="loading-bar";el.style.cssText="position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#6366f1,#10b981);z-index:999;transition:opacity .3s";document.body.appendChild(el);}
+  el.style.opacity=on?"1":"0";
+}
+
+// ═══════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════
+const fmt=n=>(n||0).toLocaleString("fr-FR",{minimumFractionDigits:2});
+const today=()=>new Date().toISOString().split("T")[0];
+const esc=s=>String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const find=(arr,id)=>arr.find(x=>+x.id===+id)||null;
+const getLabel=item=>item?(item.nom||item.l||""):"—";
+const sortAlpha=(arr,field)=>[...arr].sort((a,b)=>(a[field]||"").localeCompare(b[field]||"","fr"));
+
+function addDays(ds,days){const d=new Date(ds);d.setDate(d.getDate()+days);return d.toISOString().split("T")[0];}
+function diffDays(a,b){return Math.round((new Date(b)-new Date(a))/(1000*60*60*24));}
+
+function showToast(msg,err=false){
+  const t=document.getElementById("toast");
+  t.textContent=(err?"⚠️ ":"✓ ")+msg;
+  t.className="toast "+(err?"toast-err":"toast-ok");
+  t.style.display="flex";
+  clearTimeout(t._timer);
+  t._timer=setTimeout(()=>{t.style.display="none";},3500);
+}
+
+// ═══════════════════════════════════════════
+// SEARCHABLE SELECT WIDGET
+// ═══════════════════════════════════════════
+// Renders a searchable dropdown. onSelect(id, label) called on pick.
+// id='__new__' means user clicked "Nouveau..."
+function renderSearchSelect(cfg){
+  // cfg: {uid, items, field, selectedId, placeholder, allowNew}
+  const id=cfg.uid;
+  const selItem=cfg.selectedId?cfg.items.find(x=>x.id===+cfg.selectedId):null;
+  const selLabel=selItem?getLabel(selItem):"";
+  return `<div class="sel-wrap" id="swrap-${id}">
+    <input type="text" class="sel-search" id="sinp-${id}"
+      placeholder="${esc(cfg.placeholder||'— Chercher ou choisir —')}"
+      value="${esc(selLabel)}"
+      autocomplete="off"
+      onfocus="openSelList('${id}')"
+      oninput="filterSelList('${id}','${cfg.field||'nom'}')"
+      onkeydown="selKeyDown(event,'${id}')"/>
+    <input type="hidden" id="shid-${id}" value="${cfg.selectedId||''}"/>
+    <div class="sel-list" id="slist-${id}" style="display:none"></div>
+  </div>`;
+}
+
+function buildSelOptions(wid, field){
+  const wrap=document.getElementById("swrap-"+wid);
+  if(!wrap)return;
+  const inp=document.getElementById("sinp-"+wid);
+  const list=document.getElementById("slist-"+wid);
+  const hid=document.getElementById("shid-"+wid);
+  const q=(inp.value||"").toLowerCase().trim();
+  const cfg=window._selCfg&&window._selCfg[wid];
+  if(!cfg)return;
+  const items=sortAlpha(cfg.items, cfg.field||"nom");
+  const filtered=q?items.filter(x=>getLabel(x).toLowerCase().includes(q)):items;
+  const curId=hid.value;
+  let html="";
+  if(cfg.allowNew!==false){
+    html+=`<div class="sel-opt new-opt" onmousedown="selPickNew('${wid}')">✚ Nouveau…</div>`;
+  }
+  if(filtered.length===0&&q){
+    html+=`<div class="sel-opt" style="color:#94a3b8;cursor:default">Aucun résultat</div>`;
+  }
+  filtered.forEach(x=>{
+    const lbl=getLabel(x);
+    const sel=x.id==curId?"selected-opt":"";
+    html+=`<div class="sel-opt ${sel}" onmousedown="selPick('${wid}',${x.id},'${esc(lbl)}')">${esc(lbl)}</div>`;
+  });
+  list.innerHTML=html;
+}
+
+function openSelList(wid){
+  // Close all others
+  document.querySelectorAll(".sel-list").forEach(l=>{if(l.id!=="slist-"+wid)l.style.display="none";});
+  const list=document.getElementById("slist-"+wid);
+  if(!list)return;
+  buildSelOptions(wid);
+  list.style.display="block";
+}
+function filterSelList(wid){
+  buildSelOptions(wid);
+  document.getElementById("slist-"+wid).style.display="block";
+  document.getElementById("shid-"+wid).value=""; // clear selection while typing
+}
+function selPick(wid,id,label){
+  document.getElementById("sinp-"+wid).value=label;
+  document.getElementById("shid-"+wid).value=id;
+  document.getElementById("slist-"+wid).style.display="none";
+  const cfg=window._selCfg&&window._selCfg[wid];
+  if(cfg&&cfg.onSelect)cfg.onSelect(id,label);
+}
+function selPickNew(wid){
+  document.getElementById("slist-"+wid).style.display="none";
+  const cfg=window._selCfg&&window._selCfg[wid];
+  if(cfg&&cfg.onNew)cfg.onNew();
+}
+function selKeyDown(e,wid){
+  if(e.key==="Escape"){document.getElementById("slist-"+wid).style.display="none";}
+}
+function selGetValue(wid){return document.getElementById("shid-"+wid)?.value||"";}
+
+// Show scroll-to-top button when scrolled down
+window.addEventListener("scroll",function(){
+  const btn=document.getElementById("scroll-top-btn");
+  if(btn)btn.style.display=window.scrollY>300?"flex":"none";
+});
+
+// Close dropdowns on outside click
+document.addEventListener("click",function(e){
+  if(!e.target.closest(".sel-wrap")){
+    document.querySelectorAll(".sel-list").forEach(l=>l.style.display="none");
+  }
+});
+
+function initSel(wid,cfg){
+  if(!window._selCfg)window._selCfg={};
+  window._selCfg[wid]=cfg;
+}
+
+// ═══════════════════════════════════════════
+// TITRE MODIFIABLE
+// ═══════════════════════════════════════════
+function editTitle(){
+  document.getElementById("modal-title").textContent="Modifier le titre";
+  document.getElementById("modal-body").innerHTML=`
+    <div class="form-group"><label>Titre de l'application</label>
+      <input type="text" id="new-title" value="${esc(DB.appTitle||'💰 Mes Finances')}"/></div>
+    <div class="grid2" style="margin-top:8px">
+      <button class="btn btn-ghost" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-primary" onclick="saveTitle()">Enregistrer</button>
+    </div>`;
+  document.getElementById("modal-overlay").style.display="flex";
+  setTimeout(()=>{const i=document.getElementById("new-title");if(i){i.focus();i.select();}},100);
+}
+async function saveTitle(){
+  const v=(document.getElementById("new-title").value||"").trim();
+  if(!v)return;
+  try{
+    const existing=await supa('GET','config','','cle=eq.appTitle&limit=1');
+    if(existing&&existing.length>0){
+      await supa('PATCH','config',{valeur:v},'cle=eq.appTitle');
+    } else {
+      await supa('POST','config',{cle:'appTitle',valeur:v});
+    }
+    DB.appTitle=v;
+    updateHeader();
+    document.title=v;
+    closeModal();
+    showToast("Titre modifié ✅");
+  }catch(e){
+    showToast("Erreur titre: "+e.message,true);
+    console.error("saveTitle:",e);
+  }
+}
+
+// ═══════════════════════════════════════════
+// TABS
+// ═══════════════════════════════════════════
+let currentTab="dashboard";
+let dashBanqueFilter=""; // "" = toutes, sinon IDs séparés par virgule
+let dashBanquesSelected=new Set(); // set of selected bank IDs
+function switchTab(btn){
+  document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  currentTab=btn.dataset.tab;
+  txSelected=new Set();
+  txSelectMode=false;
+  // Always reload from Supabase on tab switch for real-time sync
+  loadDB().then(()=>render()).catch(e=>{console.error(e);render();});
+}
+function render(){
+  const c=document.getElementById("content");
+  if(!c)return;
+  try{
+    if(currentTab==="dashboard")    c.innerHTML=renderDashboard();
+    if(currentTab==="transactions") c.innerHTML=renderTransactions();
+    if(currentTab==="recurrents")   c.innerHTML=renderRecurrents();
+    if(currentTab==="budget")       c.innerHTML=renderBudget();
+    if(currentTab==="parametres")   c.innerHTML=renderParametres();
+  }catch(e){
+    console.error("Render error:",e);
+    c.innerHTML=`<div style="padding:20px;color:#dc2626;font-size:13px">
+      <strong>Erreur d'affichage</strong><br>${e.message}<br>
+      <button onclick="render()" style="margin-top:10px;padding:8px 16px;background:#6366f1;color:#fff;border:none;border-radius:8px;cursor:pointer">Réessayer</button>
+    </div>`;
+  }
+  setTimeout(initAllSels,0);
+}
+
+// ═══════════════════════════════════════════
+// DASHBOARD
+// ═══════════════════════════════════════════
+function renderDashboard(){
+  // Guard: DB not loaded yet
+  if(!DB||!DB.transactions){return '<p style="text-align:center;padding:40px;color:#94a3b8">⏳ Chargement…</p>';}
+  const allTxs=DB.transactions||[];
+  // Filter by selected banks (multi)
+  const selectedIds=dashBanquesSelected.size>0?[...dashBanquesSelected].map(Number):null;
+  const txs=selectedIds?allTxs.filter(t=>selectedIds.includes(+t.bqId)):allTxs;
+  const banquesScope=selectedIds?(DB.banques||[]).filter(b=>selectedIds.includes(+b.id)):(DB.banques||[]);
+  const totalD=txs.reduce((s,t)=>s+(+t.debit),0);
+  const totalC=txs.reduce((s,t)=>s+(+t.credit),0);
+  const solde=banquesScope.reduce((s,b)=>{
+    const txB=allTxs.filter(t=>+t.bqId===+b.id);
+    return s+(b.soldeInit||0)+txB.reduce((ss,t)=>ss+(+t.credit)-(+t.debit),0);
+  },0);
+  const soldeVerifTotal=banquesScope.reduce((s,b)=>{
+    const txB=allTxs.filter(t=>+t.bqId===+b.id);
+    return s+(b.soldeInit||0)+txB.filter(t=>t.ok).reduce((ss,t)=>ss+(+t.credit)-(+t.debit),0);
+  },0);
+
+  // ── Alertes récurrents ──
+  const alertes=getAlertesRecurrents();
+  const alertesHTML=alertes.length===0?"":
+    `<div style="margin-bottom:16px">
+      <div style="font-size:13px;font-weight:600;margin-bottom:8px;color:#92400e">⚠️ Échéances dans les 15 jours</div>
+      ${alertes.map(a=>`<div class="alerte-card ${a.jours<0?'alerte-urgent':a.jours<=3?'alerte-urgent':''}">
+        <div style="font-size:20px">${a.jours<0?"🔴":a.jours<=3?"🟠":"🟡"}</div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:600">${esc(a.rec.nom)}</div>
+          <div style="font-size:11px;color:#94a3b8">
+            ${a.rec.debit>0?'-'+fmt(a.rec.debit):'+'+fmt(a.rec.credit)} € • ${a.dateProchaine} • 
+            ${a.jours<0?`<span style="color:#dc2626;font-weight:600">en retard de ${Math.abs(a.jours)}j</span>`:
+              a.jours===0?`<span style="color:#f59e0b;font-weight:600">aujourd'hui !</span>`:
+              `dans ${a.jours}j`}
+          </div>
+        </div>
+      </div>`).join("")}
+    </div>`;
+
+  // ── Sélecteur banques (multi) ──
+  const banqueSelHTML=`<div class="card card-p" style="margin-bottom:12px">
+    <div style="font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Banque / Périmètre</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px">
+      <button class="btn btn-xs ${dashBanquesSelected.size===0?'btn-primary':'btn-ghost'}"
+        onclick="dashBanquesSelected=new Set();dashBanqueFilter='';render()">🏦 Toutes</button>
+      ${sortAlpha(DB.banques,"nom").map(b=>{
+        const sel=dashBanquesSelected.has(String(b.id));
+        return `<button class="btn btn-xs ${sel?'btn-primary':'btn-ghost'}"
+          onclick="toggleDashBanque('${b.id}')">${esc(b.nom)}</button>`;
+      }).join("")}
+    </div>
+    ${dashBanquesSelected.size>0?`<p style="font-size:11px;color:#6366f1">${dashBanquesSelected.size} banque${dashBanquesSelected.size>1?'s':''} sélectionnée${dashBanquesSelected.size>1?'s':''}</p>`:''}
+  </div>`;
+
+  // ── KPI Solde ──
+  const kpiHTML=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
+    <div class="kpi ${solde>=0?'green':'red'}">
+      <div class="kpi-label">Solde global</div>
+      <div class="kpi-value ${solde>=0?'text-green':'text-red'}">${fmt(solde)} €</div>
+    </div>
+    <div class="kpi green">
+      <div class="kpi-label">Solde vérifié</div>
+      <div class="kpi-value text-green">${fmt(soldeVerifTotal)} €</div>
+    </div>
+  </div>`;
+
+  // ── Tableau croisé Années × Budgets ──
+  const currentYear=new Date().getFullYear();
+  const years=[currentYear,currentYear-1,currentYear-2,currentYear-3,currentYear-4];
+  const codesAlpha=sortAlpha(DB.codes,"l");
+
+  // Compute net per code per year (using filtered txs by bank)
+  const matrix={};
+  const yearTotals={};
+  years.forEach(y=>{
+    yearTotals[y]=0;
+    codesAlpha.forEach(c=>{
+      const net=txs.filter(t=>+t.cId===+c.id&&t.date.startsWith(String(y)))
+                   .reduce((s,t)=>s+(+t.debit)-(+t.credit),0);
+      if(!matrix[c.id])matrix[c.id]={};
+      matrix[c.id][y]=net>0?net:0;
+      yearTotals[y]+=net>0?net:0;
+    });
+  });
+
+  // Build table
+  const thStyle="font-size:11px;font-weight:700;color:#64748b;padding:6px 8px;text-align:right;white-space:nowrap;border-bottom:2px solid #e2e8f0;";
+  const tdStyle="font-size:12px;padding:5px 8px;text-align:right;border-bottom:1px solid #f1f5f9;";
+  const tdLStyle="font-size:12px;padding:5px 8px;font-weight:600;border-bottom:1px solid #f1f5f9;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;";
+
+  const headerRow=`<tr>
+    <th style="${thStyle}text-align:left">Budget</th>
+    ${years.map(y=>`<th style="${thStyle}">${y}</th>`).join("")}
+  </tr>`;
+
+  const dataRows=codesAlpha.map(c=>{
+    const hasData=years.some(y=>(matrix[c.id]?.[y]||0)>0);
+    if(!hasData)return "";
+    const cells=years.map(y=>{
+      const v=matrix[c.id]?.[y]||0;
+      const pct=yearTotals[y]>0?Math.round(v/yearTotals[y]*100):0;
+      const bg=pct>=30?"#fee2e2":pct>=15?"#fef3c7":pct>=5?"#f0fdf4":"";
+      return `<td style="${tdStyle}background:${bg}">${v>0?`<span style="font-weight:600">${pct}%</span><br><span style="font-size:10px;color:#94a3b8">${fmt(v)}</span>`:'<span style="color:#e2e8f0">—</span>'}</td>`;
+    }).join("");
+    return `<tr><td style="${tdLStyle}" title="${esc(c.l)}">${esc(c.code)}<br><span style="font-size:10px;color:#94a3b8;font-weight:400">${esc(c.l)}</span></td>${cells}</tr>`;
+  }).filter(r=>r).join("");
+
+  const totalRow=`<tr style="background:#f8fafc">
+    <td style="${tdLStyle}font-weight:700">TOTAL</td>
+    ${years.map(y=>`<td style="${tdStyle}font-weight:700">${fmt(yearTotals[y])} €</td>`).join("")}
+  </tr>`;
+
+  const crossTable=`<div class="card card-p" style="margin-bottom:16px;overflow-x:auto">
+    <div style="font-size:13px;font-weight:600;margin-bottom:10px">📊 Dépenses par budget et par année</div>
+    <p style="font-size:10px;color:#94a3b8;margin-bottom:8px">% = part du budget dans le total annuel des dépenses • montant en dessous</p>
+    <table style="width:100%;border-collapse:collapse;min-width:400px">
+      <thead>${headerRow}</thead>
+      <tbody>${dataRows}${totalRow}</tbody>
+    </table>
+  </div>`;
+
+  // ── Solde par banque ──
+  const bqRows=banquesScope.map(b=>{
+    const txB=allTxs.filter(t=>+t.bqId===+b.id);
+    const st=(b.soldeInit||0)+txB.reduce((s,t)=>s+(+t.credit)-(+t.debit),0);
+    const sv=(b.soldeInit||0)+txB.filter(t=>t.ok).reduce((s,t)=>s+(+t.credit)-(+t.debit),0);
+    return `<div style="padding:8px 0;border-bottom:1px solid #f8fafc">
+      <div style="display:flex;justify-content:space-between">
+        <span style="font-size:13px;font-weight:600">${esc(b.nom)}</span>
+        <span style="font-size:13px;font-weight:700;color:${st>=0?'#059669':'#dc2626'}">${fmt(st)} €</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:2px">
+        <span style="font-size:11px;color:#94a3b8">✅ Vérifié (${txB.filter(t=>t.ok).length} op.)</span>
+        <span style="font-size:11px;font-weight:600;color:#059669">${fmt(sv)} €</span>
+      </div>
+    </div>`;
+  }).join("");
+
+  const bqCard=`<div class="card card-p">
+    <div style="font-size:13px;font-weight:600;margin-bottom:4px">🏦 Solde par banque</div>
+    <p style="font-size:10px;color:#94a3b8;margin-bottom:8px">Total = solde initial + toutes opérations &nbsp;|&nbsp; Vérifié = solde initial + cochées</p>
+    ${bqRows||'<p style="color:#94a3b8;font-size:13px">Aucune banque</p>'}
+  </div>`;
+
+  return alertesHTML+banqueSelHTML+kpiHTML+crossTable+bqCard;
+}
+
+// ═══════════════════════════════════════════
+// TRANSACTIONS avec sélection multiple
+// ═══════════════════════════════════════════
+let txSearch="",txFBq="",txFCode="",txFMois="",txFMoyen="",txFNature="",txShowF=false,txShowVerif="all";
+let recFBqFilter=""; // filtre banque propre aux récurrents
+let txPMode="mois"; // "mois" | "annee" | "periode" | "tous"
+let txPAnnee=new Date().getFullYear().toString();
+let txPDebut=""; let txPFin="";
+let txSelected=new Set();
+let txSelectMode=false;
+
+function txSearchInput(val){
+  txSearch=val;
+  // Redraw only the list part, not the search input
+  const listEl=document.getElementById("tx-list-wrap");
+  if(listEl){ listEl.innerHTML=buildTxCards(); }
+  else { render(); }
+}
+
+function renderTransactions(){
+  if(!DB||!DB.transactions)return '<p style="text-align:center;padding:40px;color:#94a3b8">⏳ Chargement…</p>';
+  const moisList=[...new Set(DB.transactions.map(t=>t.date.slice(0,7)))].sort().reverse();
+  let txs=DB.transactions.filter(t=>{
+    const b=find(DB.beneficiaires,t.bId),n=find(DB.natures,t.nId);
+    const txt=[b?.nom,n?.l].filter(Boolean).join(" ").toLowerCase();
+    if(txSearch&&!txt.includes(txSearch.toLowerCase()))return false;
+    if(txFBq&&t.bqId!==+txFBq)return false;
+    if(txFCode&&+t.cId!==+txFCode)return false;
+    if(txFMoyen&&+t.mId!==+txFMoyen)return false;
+    if(txFNature&&+t.nId!==+txFNature)return false;
+    if(txShowVerif==="yes"&&!t.ok)return false;
+    if(txShowVerif==="no"&&t.ok)return false;
+    // Période
+    const d=t.date;
+    if(txPMode==="mois"&&txFMois&&!d.startsWith(txFMois))return false;
+    if(txPMode==="annee"&&txPAnnee&&!d.startsWith(txPAnnee))return false;
+    if(txPMode==="periode"){
+      if(txPDebut&&d<txPDebut)return false;
+      if(txPFin&&d>txPFin)return false;
+    }
+    return true;
+  }).sort((a,b)=>b.date.localeCompare(a.date));
+
+  const anneeList=[...new Set(DB.transactions.map(t=>t.date.slice(0,4)))].sort().reverse();
+
+  const filterBar=txShowF?`<div class="card card-p" style="margin-bottom:10px">
+
+    <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Période</div>
+    <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap">
+      <button class="btn btn-xs ${txPMode==='tous'?'btn-primary':'btn-ghost'}" onclick="txPMode='tous';render()">Toutes</button>
+      <button class="btn btn-xs ${txPMode==='mois'?'btn-primary':'btn-ghost'}" onclick="txPMode='mois';render()">Par mois</button>
+      <button class="btn btn-xs ${txPMode==='annee'?'btn-primary':'btn-ghost'}" onclick="txPMode='annee';render()">Par année</button>
+      <button class="btn btn-xs ${txPMode==='periode'?'btn-primary':'btn-ghost'}" onclick="txPMode='periode';render()">Période libre</button>
+    </div>
+    ${txPMode==='mois'?`<div class="form-group" style="margin-bottom:10px"><label>Mois</label>
+      <select onchange="txFMois=this.value;render()">
+        <option value="">Tous les mois</option>
+        ${moisList.map(m=>`<option value="${m}" ${txFMois===m?"selected":""}>${m}</option>`).join("")}
+      </select></div>`:''}
+    ${txPMode==='annee'?`<div class="form-group" style="margin-bottom:10px"><label>Année</label>
+      <select onchange="txPAnnee=this.value;render()">
+        ${anneeList.map(a=>`<option value="${a}" ${txPAnnee===a?"selected":""}>${a}</option>`).join("")}
+      </select></div>`:''}
+    ${txPMode==='periode'?`<div class="grid2" style="margin-bottom:10px">
+      <div class="form-group" style="margin:0"><label>Du</label>
+        <input type="date" value="${txPDebut}" onchange="txPDebut=this.value;render()"/></div>
+      <div class="form-group" style="margin:0"><label>Au</label>
+        <input type="date" value="${txPFin}" onchange="txPFin=this.value;render()"/></div>
+    </div>`:''}
+
+    <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Filtres</div>
+    <div class="grid2" style="margin-bottom:8px">
+      <div class="form-group" style="margin:0"><label>Banque</label>
+        <select onchange="txFBq=this.value;render()">
+          <option value="">Toutes</option>
+          ${sortAlpha(DB.banques,"nom").map(b=>`<option value="${b.id}" ${txFBq==b.id?"selected":""}>${esc(b.nom)}</option>`).join("")}
+        </select></div>
+      <div class="form-group" style="margin:0"><label>Budget</label>
+        <select onchange="txFCode=this.value;render()">
+          <option value="">Tous</option>
+          ${sortAlpha(DB.codes,"l").map(c=>`<option value="${c.id}" ${txFCode==c.id?"selected":""}>${esc(c.code)} ${esc(c.l)}</option>`).join("")}
+        </select></div>
+    </div>
+    <div class="grid2" style="margin-bottom:8px">
+      <div class="form-group" style="margin:0"><label>Moyen de paiement</label>
+        <select onchange="txFMoyen=this.value;render()">
+          <option value="">Tous</option>
+          ${sortAlpha(DB.moyens,"l").map(m=>`<option value="${m.id}" ${txFMoyen==m.id?"selected":""}>${esc(m.l)}</option>`).join("")}
+        </select></div>
+      <div class="form-group" style="margin:0"><label>Nature</label>
+        <select onchange="txFNature=this.value;render()">
+          <option value="">Toutes</option>
+          ${sortAlpha(DB.natures,"l").map(n=>`<option value="${n.id}" ${txFNature==n.id?"selected":""}>${esc(n.l)}</option>`).join("")}
+        </select></div>
+    </div>
+    <div class="form-group" style="margin:0"><label>Vérification</label>
+      <select onchange="txShowVerif=this.value;render()">
+        <option value="all" ${txShowVerif==="all"?"selected":""}>Toutes</option>
+        <option value="yes" ${txShowVerif==="yes"?"selected":""}>✅ Vérifiées</option>
+        <option value="no"  ${txShowVerif==="no"?"selected":""}>⬜ Non vérifiées</option>
+      </select></div>
+  </div>`:"";
+
+  // ── Récurrents suggérés selon filtre banque ──
+  const recsActifs=DB.recurrents.filter(r=>r.actif&&(!txFBq||+r.bqId===+txFBq));
+  const recSuggestHTML=recsActifs.length===0?"":
+    `<div style="margin-bottom:12px">
+      <div style="font-size:12px;font-weight:700;color:#6366f1;margin-bottom:6px">
+        🔄 Opérations récurrentes${txFBq?" — "+esc(find(DB.banques,txFBq)?.nom||""):" (toutes banques)"}
+      </div>
+      ${recsActifs.map(r=>{
+        const dp=prochaineDateRecurrent(r);
+        const benef=find(DB.beneficiaires,r.bId);
+        const bq=find(DB.banques,r.bqId);
+        const j=dp?diffDays(today(),dp):null;
+        const urgent=j!==null&&j<=15;
+        return `<div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:${urgent?'#fffbeb':'#f8fafc'};border:1px solid ${urgent?'#fcd34d':'#e2e8f0'};border-radius:10px;margin-bottom:6px">
+          <div style="font-size:18px">${urgent?"⚠️":"🔄"}</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(r.nom)}</div>
+            <div style="font-size:10px;color:#94a3b8">${r.debit>0?'-'+fmt(r.debit):'+'+fmt(r.credit)} € ${bq?"• "+esc(bq.nom):""} ${dp?"• Prochaine: "+dp+(j!==null?" ("+j+"j)":""):""}</div>
+          </div>
+          ${dp?`<button class="btn btn-green btn-xs" onclick="integrerRecurrent(${r.id},'${dp}')">✅ Intégrer</button>`:""}
+          <button class="btn btn-ghost btn-xs" onclick="editRecurrent(${r.id});document.querySelector('[data-tab=recurrents]').click()">✏️</button>
+        </div>`;
+      }).join("")}
+    </div>`;
+
+  const bulkBar=txSelectMode?`<div class="bulk-bar">
+    <span>${txSelected.size} sélectionnée${txSelected.size>1?'s':''}</span>
+    <button class="btn btn-primary btn-xs" onclick="selectAllTx(${JSON.stringify(txs.map(t=>t.id))})">Tout sélectionner</button>
+    <button class="btn btn-ghost btn-xs" onclick="txSelected=new Set();txSelectMode=false;render()">Annuler</button>
+    <div style="flex:1"></div>
+    ${txSelected.size>0?`<button class="btn btn-danger btn-xs" onclick="deleteSelectedTx()">🗑️ Supprimer (${txSelected.size})</button>`:""}
+  </div>`:"";
+
+  const cards=txs.map(t=>{
+    const benef=find(DB.beneficiaires,t.bId),nat=find(DB.natures,t.nId);
+    const bq=find(DB.banques,t.bqId),mo=find(DB.moyens,t.mId),code=find(DB.codes,t.cId);
+    const isCr=t.credit>0;
+    const isSel=txSelected.has(t.id);
+    return `<div class="tx-card ${t.ok?'verified':''} ${isSel?'selected':''}">
+      ${txSelectMode
+        ?`<div class="sel-box ${isSel?'on':''}" onclick="toggleTxSel(${t.id})">${isSel?'✓':''}</div>`
+        :`<div class="${t.ok?'check-box on':'check-box'}" onclick="toggleVerif(${t.id})">${t.ok?'✓':''}</div>`
+      }
+      <div class="tx-icon ${isCr?'credit':'debit'}">${isCr?'↑':'↓'}</div>
+      <div class="tx-info">
+        <div class="tx-title">${esc(getLabel(benef))}</div>
+        <div class="tx-meta">
+          <span>${t.date}</span>
+          ${nat?`<span class="badge badge-indigo">${esc(nat.l)}</span>`:""}
+          ${code?`<span class="badge badge-amber">${esc(code.code)}</span>`:""}
+          ${bq?`<span>• ${esc(bq.nom)}</span>`:""}
+          ${mo?`<span>• ${esc(mo.l)}</span>`:""}
+          ${t.ok?`<span class="badge badge-green">✅</span>`:""}
+          ${t.notes?`<span style="font-size:10px;color:#64748b;font-style:italic">📝 ${esc(t.notes)}</span>`:""}
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0">
+        <span style="font-size:13px;font-weight:700;color:${isCr?'#059669':'#dc2626'}">${isCr?'+':'-'}${fmt(isCr?t.credit:t.debit)} €</span>
+        <div style="display:flex;gap:2px">
+          <button class="icon-btn" onclick="openEditTx(${t.id})" title="Modifier">✏️</button>
+          <button class="icon-btn" onclick="duplicateTx(${t.id})" title="Dupliquer">📋</button>
+          <button class="icon-btn" onclick="deleteTx(${t.id})" title="Supprimer">🗑️</button>
+        </div>
+      </div>
+    </div>`;
+  }).join("")||'<p style="text-align:center;color:#94a3b8;padding:32px 0;font-size:13px">Aucune transaction trouvée</p>';
+
+  return `
+    <div id="tx-sticky-header" style="background:#f1f5f9;padding:8px 0 6px;margin-bottom:8px;">
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:4px">
+        <div class="search-wrap" style="flex:1">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="tx-search-inp" placeholder="Rechercher…" value="${esc(txSearch)}" oninput="txSearchInput(this.value)" style="padding-left:34px"/>
+        </div>
+        <button class="btn ${txShowF?'btn-primary':'btn-ghost'} btn-sm" onclick="txShowF=!txShowF;render()">⚙️</button>
+        <button class="btn ${txSelectMode?'btn-amber':'btn-ghost'} btn-sm" onclick="txSelectMode=!txSelectMode;txSelected=new Set();render()">☑️</button>
+      </div>
+      <p style="font-size:11px;color:#94a3b8;margin:0" id="tx-count-label">${txs.length} transaction${txs.length>1?'s':''} &nbsp;|&nbsp; ✅ ${txs.filter(t=>t.ok).length} vérifiée${txs.filter(t=>t.ok).length>1?'s':''}</p>
+    </div>
+    ${txShowF?filterBar:''}
+    ${bulkBar}
+    <div id="tx-list-wrap" style="margin-top:8px">${cards}</div>`;
+}
+
+async function saveBudget(codeId,val){
+  const v=parseFloat(val)||0;
+  DB.budgets[codeId]=v;
+  try{await supa('PATCH','codes',{budget_mensuel:v},`id=eq.${codeId}`);}
+  catch(e){showToast("Erreur sauvegarde budget",true);}
+}
+
+function buildTxCards(){
+  // Reuse current filter state
+  let txs=DB.transactions.filter(t=>{
+    const b=find(DB.beneficiaires,t.bId),n=find(DB.natures,t.nId);
+    const txt=[b?.nom,n?.l].filter(Boolean).join(" ").toLowerCase();
+    if(txSearch&&!txt.includes(txSearch.toLowerCase()))return false;
+    if(txFBq&&t.bqId!==+txFBq)return false;
+    if(txFCode&&+t.cId!==+txFCode)return false;
+    if(txFMoyen&&+t.mId!==+txFMoyen)return false;
+    if(txFNature&&+t.nId!==+txFNature)return false;
+    if(txShowVerif==="yes"&&!t.ok)return false;
+    if(txShowVerif==="no"&&t.ok)return false;
+    const d=t.date;
+    if(txPMode==="mois"&&txFMois&&!d.startsWith(txFMois))return false;
+    if(txPMode==="annee"&&txPAnnee&&!d.startsWith(txPAnnee))return false;
+    if(txPMode==="periode"){
+      if(txPDebut&&d<txPDebut)return false;
+      if(txPFin&&d>txPFin)return false;
+    }
+    return true;
+  }).sort((a,b)=>b.date.localeCompare(a.date));
+  // Update count label
+  const lbl=document.getElementById("tx-count-label");
+  if(lbl)lbl.textContent=`${txs.length} transaction${txs.length>1?'s':''} | ✅ ${txs.filter(t=>t.ok).length} vérifiée${txs.filter(t=>t.ok).length>1?'s':''}`;
+  if(txs.length===0)return'<p style="text-align:center;color:#94a3b8;padding:32px 0;font-size:13px">Aucune transaction trouvée</p>';
+  return txs.map(t=>{
+    const benef=find(DB.beneficiaires,t.bId),nat=find(DB.natures,t.nId);
+    const bq=find(DB.banques,t.bqId),mo=find(DB.moyens,t.mId),code=find(DB.codes,t.cId);
+    const isCr=t.credit>0;const isSel=txSelected.has(t.id);
+    return `<div class="tx-card ${t.ok?'verified':''} ${isSel?'selected':''}">
+      ${txSelectMode
+        ?`<div class="sel-box ${isSel?'on':''}" onclick="toggleTxSel(${t.id})">${isSel?'✓':''}</div>`
+        :`<div class="${t.ok?'check-box on':'check-box'}" onclick="toggleVerif(${t.id})">${t.ok?'✓':''}</div>`
+      }
+      <div class="tx-icon ${isCr?'credit':'debit'}">${isCr?'↑':'↓'}</div>
+      <div class="tx-info">
+        <div class="tx-title">${esc(getLabel(benef))}</div>
+        <div class="tx-meta">
+          <span>${t.date}</span>
+          ${nat?`<span class="badge badge-indigo">${esc(nat.l)}</span>`:""}
+          ${code?`<span class="badge badge-amber">${esc(code.code)}</span>`:""}
+          ${bq?`<span>• ${esc(bq.nom)}</span>`:""}
+          ${mo?`<span>• ${esc(mo.l)}</span>`:""}
+          ${t.ok?`<span class="badge badge-green">✅</span>`:""}
+          ${t.notes?`<span style="font-size:10px;color:#64748b;font-style:italic">📝 ${esc(t.notes)}</span>`:""}
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0">
+        <span style="font-size:13px;font-weight:700;color:${isCr?'#059669':'#dc2626'}">${isCr?'+':'-'}${fmt(isCr?t.credit:t.debit)} €</span>
+        <div style="display:flex;gap:2px">
+          <button class="icon-btn" onclick="openEditTx(${t.id})" title="Modifier">✏️</button>
+          <button class="icon-btn" onclick="duplicateTx(${t.id})" title="Dupliquer">📋</button>
+          <button class="icon-btn" onclick="deleteTx(${t.id})" title="Supprimer">🗑️</button>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+async function toggleVerif(id){
+  const t=find(DB.transactions,id);if(!t)return;
+  try{await supa('PATCH','transactions',{verifie:!t.ok},`id=eq.${id}`);t.ok=!t.ok;render();}
+  catch(e){showToast("Erreur",true);}
+}
+function toggleTxSel(id){if(txSelected.has(id))txSelected.delete(id);else txSelected.add(id);render();}
+function selectAllTx(ids){ids.forEach(id=>txSelected.add(id));render();}
+function deleteSelectedTx(){
+  if(txSelected.size===0)return;
+  askConfirm(`Supprimer ${txSelected.size} transaction${txSelected.size>1?'s':''} ?`,"Cette action est irréversible.",async function(){
+    try{
+      const ids=[...txSelected].join(',');
+      await supa('DELETE','transactions','',`id=in.(${ids})`);
+      txSelected=new Set();txSelectMode=false;
+      await loadDB();render();showToast("Transactions supprimées");
+    }catch(e){showToast("Erreur: "+e.message,true);}
+  });
+}
+
+// ═══════════════════════════════════════════
+// RÉCURRENTS
+// ═══════════════════════════════════════════
+function getAlertesRecurrents(){
+  const alertes=[];const t0=today();
+  DB.recurrents.filter(r=>r.actif).forEach(r=>{
+    const dp=prochaineDateRecurrent(r);if(!dp)return;
+    const j=diffDays(t0,dp);
+    // Afficher de J-8 à J+8 - info seulement, aucune intégration automatique
+    if(j>=-8&&j<=8)alertes.push({rec:r,dateProchaine:dp,jours:j});
+  });
+  return alertes.sort((a,b)=>a.jours-b.jours);
+}
+function dernierJourDuMois(an,mois){
+  return new Date(an, mois, 0).getDate(); // mois=1-12, new Date(an,mois,0) = last day
+}
+function jourEffectif(jour,an,mois){
+  // jour=99 means last day of month
+  if(jour===99) return dernierJourDuMois(an,mois);
+  // cap at last day of month (e.g. jour=31 in June -> 30)
+  return Math.min(jour, dernierJourDuMois(an,mois));
+}
+function buildDateMensuel(an,mois,jour){
+  const j=jourEffectif(jour,an,mois);
+  return `${an}-${String(mois).padStart(2,'0')}-${String(j).padStart(2,'0')}`;
+}
+function prochaineDateRecurrent(r){
+  const t0=today();
+  const now=new Date();
+  const an=now.getFullYear();
+  const mois=now.getMonth()+1;
+  if(["mensuel","bimestriel","trimestriel","semestriel"].includes(r.freq)){
+    const j=r.jour||1;
+    const intervalMois={mensuel:1,bimestriel:2,trimestriel:3,semestriel:6}[r.freq]||1;
+    const dernier=r.derniereIntegration||r.derniere_integration||null;
+    if(dernier){
+      // Prochaine = mois de la dernière intégration + intervalle, au jour j
+      // On utilise le mois de derniereIntegration (pas le jour exact)
+      const dernierAn=+dernier.slice(0,4);
+      const dernierMois=+dernier.slice(5,7);
+      // La date prévue pour ce mois-là
+      const datePrevue=buildDateMensuel(dernierAn,dernierMois,j);
+      // Avancer d'un intervalle depuis ce mois
+      let nextMois=dernierMois+intervalMois;
+      let nextAn=dernierAn;
+      while(nextMois>12){nextMois-=12;nextAn++;}
+      const prochaine=buildDateMensuel(nextAn,nextMois,j);
+      // Si la prochaine est encore dans le passé (retard > 1 période), avancer encore
+      if(prochaine<t0){
+        let m=nextMois+intervalMois; let a=nextAn;
+        while(m>12){m-=12;a++;}
+        return buildDateMensuel(a,m,j);
+      }
+      return prochaine;
+    }
+    // Pas de dernière intégration : trouver la prochaine occurrence >= aujourd'hui - 30j
+    const limite=addDays(t0,-30);
+    let sm=mois; let sa=an;
+    for(let i=0;i<24;i++){
+      const candidate=buildDateMensuel(sa,sm,j);
+      if(candidate>=limite)return candidate;
+      sm+=intervalMois;
+      while(sm>12){sm-=12;sa++;}
+    }
+    return buildDateMensuel(an,mois,j);
+  }
+  if(r.freq==="annuel"){
+    const dernier=r.derniereIntegration||null;
+    // Si déjà intégré cette année, passer à l'année suivante
+    const suffix=r.dateFixe?r.dateFixe.slice(5):"01-01";
+    let startAn=an;
+    if(dernier&&dernier.slice(0,4)>=String(an))startAn=+dernier.slice(0,4)+1;
+    const d1=`${startAn}-${suffix}`;
+    const d2=`${startAn+1}-${suffix}`;
+    return d1>=t0?d1:d2;
+  }
+  if(r.freq==="unique"){return r.dateFixe>=t0?r.dateFixe:null;}
+  return null;
+}
+function renderRecurrents(){
+  if(!DB||!DB.recurrents)return '<p style="text-align:center;padding:40px;color:#94a3b8">⏳ Chargement…</p>';
+  const alertes=getAlertesRecurrents();
+  const nbRetard=alertes.filter(a=>a.jours<0).length;
+  const nbAVenir=alertes.filter(a=>a.jours>=0).length;
+  const bannerMsg=nbRetard>0?
+    `🔴 ${nbRetard} échéance${nbRetard>1?'s':''} en retard${nbAVenir>0?' + '+nbAVenir+' à venir':''}`:
+    `⚠️ ${nbAVenir} échéance${nbAVenir>1?'s':''} dans les 15 prochains jours`;
+  const banner=alertes.length>0?`<div style="background:#fef2f2;border:1px solid #fca5a5;border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:12px;font-weight:600;color:#dc2626">${bannerMsg}</div>`:"";
+
+  // Filtre banque indépendant pour les récurrents
+  const recFBq=recFBqFilter;
+  const bqNom=recFBq?find(DB.banques,recFBq)?.nom:"";
+  const filtreBar='';// inlined in sticky header
+
+  const recsAll=recFBq?DB.recurrents.filter(r=>+r.bqId===+recFBq):DB.recurrents;
+  // Trier par prochaine échéance croissante
+  const recsFiltered=[...recsAll].sort((a,b)=>{
+    const da=prochaineDateRecurrent(a)||"9999";
+    const db=prochaineDateRecurrent(b)||"9999";
+    return da.localeCompare(db);
+  });
+  const rows=recsFiltered.map(r=>{
+    const benef=find(DB.beneficiaires,r.bId);const bq=find(DB.banques,r.bqId);const code=find(DB.codes,r.cId);
+    const dp=prochaineDateRecurrent(r);
+    const fl={mensuel:"Mensuel",bimestriel:"Bimestriel",trimestriel:"Trimestriel",semestriel:"Semestriel",annuel:"Annuel",unique:"Date fixe"}[r.freq]||r.freq;
+    const jourLabel=r.freq==="mensuel"?(r.jour===99?"fin de mois":"le "+r.jour):"";;
+    return `<div class="card card-p" style="margin-bottom:10px;opacity:${r.actif?1:.5}">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+        <div><span style="font-size:13px;font-weight:600">${esc(r.nom)}</span>
+          <span class="badge badge-orange" style="margin-left:6px">${fl}${jourLabel?" · "+jourLabel:""}</span>
+          ${r.actif?'<span class="badge badge-green" style="margin-left:4px">Actif</span>':'<span class="badge" style="margin-left:4px;background:#f1f5f9;color:#64748b">Inactif</span>'}
+        </div>
+        <span style="font-size:13px;font-weight:700;color:${r.credit>0?'#059669':'#dc2626'}">${r.credit>0?'+':'-'}${fmt(r.credit>0?r.credit:r.debit)} €</span>
+      </div>
+      <div style="font-size:11px;color:#94a3b8;margin-bottom:8px">
+        ${benef?esc(benef.nom):"—"} ${bq?"• "+esc(bq.nom):""} ${code?"• "+esc(code.code):""}
+        ${dp?`• Prochaine : <strong style="color:#1e293b">${dp}</strong>`:""}
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <button class="btn btn-ghost btn-xs" onclick="toggleActifRecurrent(${r.id})">${r.actif?"⏸ Désactiver":"▶ Activer"}</button>
+        <button class="btn btn-ghost btn-xs" onclick="editRecurrent(${r.id})">✏️ Modifier</button>
+        <button class="btn btn-ghost btn-xs" onclick="duplicateRecurrent(${r.id})">📋 Dupliquer</button>
+        ${dp?`<button class="btn btn-green btn-xs" onclick="integrerRecurrent(${r.id},'${dp}')">✅ Intégrer</button>`:""}
+        <button class="btn btn-danger btn-xs" onclick="deleteRecurrent(${r.id})">🗑️</button>
+      </div>
+    </div>`;
+  }).join("")||'<p style="text-align:center;color:#94a3b8;padding:24px 0;font-size:13px">Aucune opération récurrente</p>';
+  return `
+    <div style="background:#f1f5f9;padding:8px 0 6px;margin-bottom:12px;">
+      ${banner}
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+        <div class="form-group" style="margin:0;flex:1"><label style="font-size:10px">Banque</label>
+          <select onchange="recFBqFilter=this.value;render()" style="padding:6px 10px;font-size:12px">
+            <option value="">Toutes les banques</option>
+            ${sortAlpha(DB.banques,"nom").map(b=>`<option value="${b.id}" ${recFBq==b.id?"selected":""}>${esc(b.nom)}</option>`).join("")}
+          </select>
+        </div>
+        <button class="btn btn-primary btn-sm" style="margin-top:14px;white-space:nowrap" onclick="openNewRecurrent()">＋ Nouvelle</button>
+      </div>
+      <p style="font-size:12px;font-weight:600;color:#475569;margin:0">${recsFiltered.length} opération${recsFiltered.length>1?'s':''}${recFBq?' — '+esc(bqNom):''}</p>
+    </div>
+    ${rows}`;
+}
+
+let editingRecId=null;
+function openNewRecurrent(){
+  editingRecId=null;
+  showRecurrentModal(null);
+}
+function editRecurrent(id){
+  editingRecId=+id; // force number
+  showRecurrentModal(find(DB.recurrents,+id));
+}
+function showRecurrentModal(r){
+  // Always sync editingRecId with the record being edited
+  editingRecId = r ? r.id : null;
+  console.log("showRecurrentModal - editingRecId set to:", editingRecId);
+  document.getElementById("modal-title").textContent=r?"Modifier":"Nouvelle opération récurrente";
+  const freq=r?.freq||"mensuel";
+  document.getElementById("modal-body").innerHTML=`
+    <div class="form-group"><label>Nom *</label><input type="text" id="rec-nom" value="${esc(r?.nom||"")}"/></div>
+    <div class="form-group"><label>Fréquence *</label>
+      <select id="rec-freq" onchange="toggleRecFreq()">
+        <option value="mensuel"     ${freq==="mensuel"?"selected":""}>Mensuel</option>
+        <option value="bimestriel"  ${freq==="bimestriel"?"selected":""}>Bimestriel (tous les 2 mois)</option>
+        <option value="trimestriel" ${freq==="trimestriel"?"selected":""}>Trimestriel (tous les 3 mois)</option>
+        <option value="semestriel"  ${freq==="semestriel"?"selected":""}>Semestriel (tous les 6 mois)</option>
+        <option value="annuel"      ${freq==="annuel"?"selected":""}>Annuel</option>
+        <option value="unique"      ${freq==="unique"?"selected":""}>Date fixe unique</option>
+      </select></div>
+    <div id="rec-jour-wrap" class="form-group" style="${freq==="mensuel"?"":"display:none"}">
+      <label>Jour du mois</label>
+      <select id="rec-jour">
+        ${Array.from({length:28},(_,i)=>`<option value="${i+1}" ${(r?.jour||1)===(i+1)?"selected":""}>${i+1}</option>`).join("")}
+        <option value="29" ${r?.jour===29?"selected":""}>29 (si existe)</option>
+        <option value="30" ${r?.jour===30?"selected":""}>30 (si existe)</option>
+        <option value="31" ${r?.jour===31?"selected":""}>31 (si existe)</option>
+        <option value="99" ${r?.jour===99?"selected":""}>📅 Fin de mois</option>
+      </select>
+      <p style="font-size:10px;color:#94a3b8;margin-top:3px">
+        "Fin de mois" = dernier jour du mois (28, 29, 30 ou 31 selon le mois).<br>
+        Pour les jours 29-31 : si le mois est plus court, le dernier jour est utilisé.
+      </p>
+    </div>
+    <div id="rec-date-wrap" class="form-group" style="${freq!=="mensuel"?"":"display:none"}">
+      <label>Date</label><input type="date" id="rec-date" value="${r?.dateFixe||today()}"/></div>
+    <div class="form-group"><label>Bénéficiaire</label>
+      ${renderSearchSelect({uid:'rec-benef',items:DB.beneficiaires,field:'nom',selectedId:r?.bId,placeholder:'Chercher bénéficiaire…',allowNew:false})}</div>
+    <div class="form-group"><label>Nature</label>
+      ${renderSearchSelect({uid:'rec-nature',items:DB.natures,field:'l',selectedId:r?.nId,placeholder:'Chercher nature…',allowNew:false})}</div>
+    <div class="form-group"><label>Notes</label>
+      <input type="text" id="rec-notes" placeholder="Notes libres…" value="${esc(r?.notes||'')}"/></div>
+    <div class="grid2">
+      <div class="form-group"><label>Banque</label>
+        ${renderSearchSelect({uid:'rec-bq',items:DB.banques,field:'nom',selectedId:r?.bqId,placeholder:'Banque…',allowNew:false})}</div>
+      <div class="form-group"><label>Moyen</label>
+        ${renderSearchSelect({uid:'rec-moyen',items:DB.moyens,field:'l',selectedId:r?.mId,placeholder:'Moyen…',allowNew:false})}</div>
+    </div>
+    <div class="grid2">
+      <div class="form-group"><label>Débit (€)</label><input type="number" id="rec-debit" step="0.01" min="0" value="${r?.debit||""}" placeholder="0.00"/></div>
+      <div class="form-group"><label>Crédit (€)</label><input type="number" id="rec-credit" step="0.01" min="0" value="${r?.credit||""}" placeholder="0.00"/></div>
+    </div>
+    <div class="form-group"><label>Code budget</label>
+      ${renderSearchSelect({uid:'rec-code',items:DB.codes,field:'l',selectedId:r?.cId,placeholder:'Code…',allowNew:false})}</div>
+    <div class="grid2" style="margin-top:8px">
+      <button class="btn btn-ghost" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-primary" onclick="saveRecurrent()">Enregistrer</button>
+    </div>`;
+  document.getElementById("modal-overlay").style.display="flex";
+  setTimeout(()=>{
+    initSel('rec-benef',{items:DB.beneficiaires,field:'nom'});
+    initSel('rec-nature',{items:DB.natures,field:'l'});
+    initSel('rec-bq',{items:DB.banques,field:'nom'});
+    initSel('rec-moyen',{items:DB.moyens,field:'l'});
+    initSel('rec-code',{items:DB.codes,field:'l'});
+  },50);
+}
+function toggleRecFreq(){
+  const f=document.getElementById("rec-freq").value;
+  const isMonthly=["mensuel","bimestriel","trimestriel","semestriel"].includes(f);
+  document.getElementById("rec-jour-wrap").style.display=isMonthly?"":"none";
+  document.getElementById("rec-date-wrap").style.display=!isMonthly?"":"none";
+}
+async function saveRecurrent(){
+  const nom=(document.getElementById("rec-nom").value||"").trim();
+  if(!nom){showToast("Nom requis",true);return;}
+  const freq=document.getElementById("rec-freq").value;
+  const row={
+    nom,freq,
+    jour:["mensuel","bimestriel","trimestriel","semestriel"].includes(freq)?+document.getElementById("rec-jour").value:null,
+    date_fixe:!["mensuel","bimestriel","trimestriel","semestriel"].includes(freq)?document.getElementById("rec-date").value:null,
+    beneficiaire_id:+selGetValue('rec-benef')||null,
+    nature_id:+selGetValue('rec-nature')||null,
+    banque_id:+selGetValue('rec-bq')||null,
+    moyen_id:+selGetValue('rec-moyen')||null,
+    code_id:+selGetValue('rec-code')||null,
+    debit:parseFloat(document.getElementById("rec-debit").value)||0,
+    credit:parseFloat(document.getElementById("rec-credit").value)||0,
+    actif:true,
+    notes:(document.getElementById("rec-notes")?.value||"").trim()||null,
+  };
+  try{
+    console.log("saveRecurrent - user:", currentUser?.id);
+    console.log("saveRecurrent - editingRecId:", editingRecId);
+    console.log("saveRecurrent - row:", JSON.stringify(row));
+    
+    if(editingRecId){
+      console.log("→ PATCH existing:", editingRecId);
+      const r=await supa('PATCH','recurrents',row,`id=eq.${editingRecId}`);
+      console.log("PATCH result:", r);
+    } else {
+      console.log("→ POST new recurrent");
+      const r=await supa('POST','recurrents',row);
+      console.log("POST result:", r);
+      await new Promise(r=>setTimeout(r,1000));
+    }
+    
+    // Vérifier que c'est bien en base
+    const check=await supa('GET','recurrents','','order=created_at.desc&limit=5');
+    console.log("Recurrents in DB after save:", check?.length, JSON.stringify(check));
+    
+    closeModal();
+    await loadDB();
+    console.log("After loadDB, recurrents:", DB.recurrents.length);
+    render();
+    showToast("Enregistré ✅ — visible sur tous vos appareils");
+  }catch(e){
+    console.error("saveRecurrent ERROR:", e);
+    showToast("Erreur: "+e.message,true);
+  }
+}
+async function toggleActifRecurrent(id){
+  const r=find(DB.recurrents,id);if(!r)return;
+  try{await supa('PATCH','recurrents',{actif:!r.actif},`id=eq.${id}`);r.actif=!r.actif;render();}
+  catch(e){showToast("Erreur",true);}
+}
+function deleteRecurrent(id){
+  askConfirm("Supprimer cette opération récurrente ?","",async function(){
+    try{await supa('DELETE','recurrents','',`id=eq.${id}`);await loadDB();render();showToast("Supprimé");}
+    catch(e){showToast("Erreur: "+e.message,true);}
+  });
+}
+async function duplicateRecurrent(id){
+  const r=find(DB.recurrents,id);if(!r)return;
+  try{
+    const row={nom:r.nom+" (copie)",freq:r.freq,jour:r.jour,date_fixe:r.dateFixe,
+      beneficiaire_id:r.bId,nature_id:r.nId,banque_id:r.bqId,
+      moyen_id:r.mId,code_id:r.cId,debit:r.debit,credit:r.credit,actif:false};
+    await supa('POST','recurrents',row);
+    await new Promise(r=>setTimeout(r,800));
+    await loadDB();render();
+    showToast("Dupliqué ✅");
+  }catch(e){showToast("Erreur: "+e.message,true);}
+}
+async function integrerRecurrent(id,date){
+  const r=find(DB.recurrents,id);if(!r)return;
+  try{
+    await supa('POST','transactions',{date,beneficiaire_id:r.bId,nature_id:r.nId,banque_id:r.bqId,moyen_id:r.mId,code_id:r.cId,debit:r.debit,credit:r.credit,verifie:false,notes:r.notes||null});
+    await supa('PATCH','recurrents',{derniere_integration:date},`id=eq.${id}`);
+    // Update in memory immediately so prochaineDateRecurrent recalculates
+    r.derniereIntegration=date;
+    await new Promise(r=>setTimeout(r,500));
+    await loadDB();render();
+    showToast("Intégrée ✅ — prochaine échéance mise à jour");
+  }catch(e){showToast("Erreur: "+e.message,true);}
+}
+
+// ═══════════════════════════════════════════
+// BUDGET
+// ═══════════════════════════════════════════
+let budgetMois=today().slice(0,7);
+let budgetMode="mois"; // "mois" | "periode" | "annee"
+let budgetDebut=""; let budgetFin=""; let budgetAnnee=new Date().getFullYear().toString();
+let budgetBanque=""; // "" = toutes
+function budgetDateFilter(t){
+  // Filter by bank
+  if(budgetBanque&&+t.bqId!==+budgetBanque)return false;
+  // Filter by date
+  const d=t.date;
+  if(budgetMode==="mois") return d.startsWith(budgetMois);
+  if(budgetMode==="annee") return d.startsWith(budgetAnnee);
+  if(budgetMode==="periode"){
+    if(budgetDebut&&d<budgetDebut)return false;
+    if(budgetFin&&d>budgetFin)return false;
+    return true;
+  }
+  return false;
+}
+function budgetTxFilter(t){
+  if(+t.debit<=0)return false;
+  return budgetDateFilter(t);
+}
+
+function budgetPeriodeLabel(){
+  if(budgetMode==="mois") return budgetMois;
+  if(budgetMode==="annee") return "Année "+budgetAnnee;
+  if(budgetMode==="periode") return (budgetDebut||"…")+" → "+(budgetFin||"…");
+  return "";
+}
+
+function renderBudget(){
+  if(!DB||!DB.transactions)return '<p style="text-align:center;padding:40px;color:#94a3b8">⏳ Chargement…</p>';
+  const moisList=[...new Set(DB.transactions.map(t=>t.date.slice(0,7)))].sort().reverse();
+  const anneeList=[...new Set(DB.transactions.map(t=>t.date.slice(0,4)))].sort().reverse();
+  if(moisList.length&&!moisList.includes(budgetMois))budgetMois=moisList[0];
+
+  // Période selector
+  const periodeSel=`
+    <div class="card card-p" style="margin-bottom:14px">
+      <div style="font-size:12px;font-weight:700;color:#64748b;margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em">Période d'analyse</div>
+      <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap">
+        <button class="btn btn-sm ${budgetMode==='mois'?'btn-primary':'btn-ghost'}" onclick="budgetMode='mois';render()">Par mois</button>
+        <button class="btn btn-sm ${budgetMode==='annee'?'btn-primary':'btn-ghost'}" onclick="budgetMode='annee';render()">Par année</button>
+        <button class="btn btn-sm ${budgetMode==='periode'?'btn-primary':'btn-ghost'}" onclick="budgetMode='periode';render()">Période libre</button>
+      </div>
+      ${budgetMode==='mois'?`
+        <div class="form-group" style="margin:0"><label>Mois</label>
+          <select onchange="budgetMois=this.value;render()">
+            ${moisList.map(m=>`<option value="${m}" ${budgetMois===m?"selected":""}>${m}</option>`).join("")}
+            ${!moisList.length?`<option value="${budgetMois}">${budgetMois}</option>`:""}
+          </select></div>`:""}
+      ${budgetMode==='annee'?`
+        <div class="form-group" style="margin:0"><label>Année</label>
+          <select onchange="budgetAnnee=this.value;render()">
+            ${anneeList.map(a=>`<option value="${a}" ${budgetAnnee===a?"selected":""}>${a}</option>`).join("")}
+            ${!anneeList.length?`<option value="${budgetAnnee}">${budgetAnnee}</option>`:""}
+          </select></div>`:""}
+      ${budgetMode==='periode'?`
+        <div class="grid2">
+          <div class="form-group" style="margin:0"><label>Du</label>
+            <input type="date" value="${budgetDebut}" onchange="budgetDebut=this.value;render()"/></div>
+          <div class="form-group" style="margin:0"><label>Au</label>
+            <input type="date" value="${budgetFin}" onchange="budgetFin=this.value;render()"/></div>
+        </div>`:""}
+    <div style="border-top:1px solid #f1f5f9;padding-top:10px;margin-top:4px">
+      <div class="form-group" style="margin:0"><label>Banque</label>
+        <select onchange="budgetBanque=this.value;render()">
+          <option value="">&#127974; Toutes les banques</option>
+          ${sortAlpha(DB.banques,"nom").map(b=>`<option value="${b.id}" ${budgetBanque==b.id?"selected":""}>${esc(b.nom)}</option>`).join("")}
+        </select>
+      </div>
+    </div>
+    </div>`;
+
+  // Totaux période
+  const txPeriode=DB.transactions.filter(budgetDateFilter);
+  const totalPeriode=txPeriode.reduce((s,t)=>s+(+t.debit)-(+t.credit),0);
+  const nbTx=txPeriode.length;
+
+  const rows=sortAlpha(DB.codes,"l").map(c=>{
+    // Net = débits - crédits (remboursements déduits)
+    const txCode=DB.transactions.filter(t=>+t.cId===+c.id&&budgetDateFilter(t));
+    const dep=txCode.reduce((s,t)=>s+(+t.debit)-(+t.credit),0);
+    if(dep<=0&&(DB.budgets[c.id]||0)===0)return ""; // masquer les codes vides sans budget
+    const bgt=budgetMode==="mois"?(DB.budgets[c.id]||0):
+              budgetMode==="annee"?(DB.budgets[c.id]||0)*12:
+              (DB.budgets[c.id]||0); // période libre : budget mensuel affiché tel quel
+    const pct=bgt>0?Math.min(dep/bgt*100,100):0;
+    const cls=pct>=100?"prog-red":pct>=80?"prog-amber":"prog-green";
+    const tag=dep>bgt&&bgt>0?`<span class="badge badge-red">Dépassé</span>`:
+              pct>=80&&pct<100?`<span class="badge badge-amber">Attention</span>`:
+              bgt>0?`<span class="badge badge-green">OK</span>`:"";
+    const bgtLabel=budgetMode==="annee"?"Budget annuel (×12)":"Budget mensuel";
+    return `<div class="card card-p" style="margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <span style="font-size:13px;font-weight:600">${esc(c.l)} <span class="badge badge-amber">${esc(c.code)}</span></span>
+        <span style="font-size:13px;font-weight:700;color:${dep>bgt&&bgt>0?'#dc2626':dep<0?'#059669':'#1e293b'}">${fmt(dep)} ${bgt>0?"/ "+fmt(bgt):""} €${dep<0?' <span style="font-size:10px;color:#059669">(remb.)</span>':''}</span>
+      </div>
+      ${bgt>0?`<div class="prog-bg"><div class="prog-bar ${cls}" style="width:${pct}%"></div></div>`:""}
+      <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
+        <span style="font-size:11px;color:#94a3b8">${bgtLabel} :</span>
+        <input type="number" style="width:90px;font-size:12px;padding:4px 8px;border-radius:8px" value="${DB.budgets[c.id]||""}" min="0" step="10"
+          onchange="saveBudget(${c.id},this.value)"/>
+        <span style="font-size:11px;color:#94a3b8">€</span>${tag}
+      </div>
+    </div>`;
+  }).filter(r=>r).join("")||'<p style="text-align:center;color:#94a3b8;padding:20px 0;font-size:13px">Aucune dépense sur cette période</p>';
+
+  const totalBar=`<div class="card card-p" style="margin-bottom:12px;background:#f8fafc">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-size:12px;color:#94a3b8;font-weight:600">Total dépenses — ${esc(budgetPeriodeLabel())}</div>
+        <div style="font-size:18px;font-weight:700;color:#dc2626;margin-top:2px">${fmt(totalPeriode)} €</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:11px;color:#94a3b8">${nbTx} opération${nbTx>1?'s':''}</div>
+      </div>
+    </div>
+  </div>`;
+
+  return periodeSel+totalBar+rows;
+}
+
+// ═══════════════════════════════════════════
+// PARAMÈTRES
+// ═══════════════════════════════════════════
+function renderParametres(){
+  return `
+    <div class="card card-p" style="margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleSection('section-donnees')">
+        <div style="font-size:13px;font-weight:600">🗄️ Données</div>
+        <span id="icon-section-donnees" style="font-size:14px;color:#94a3b8">▼</span>
+      </div>
+      <div id="section-donnees" style="display:none;margin-top:10px">
+        <div class="grid2" style="gap:8px;margin-bottom:10px">
+          <button class="btn btn-ghost btn-sm" onclick="doExportCSV()">⬇️ Export CSV</button>
+          <button class="btn btn-ghost btn-sm" onclick="doExportJSON()">⬇️ Sauvegarde JSON</button>
+          <button class="btn btn-primary btn-sm" onclick="document.getElementById('file-import').click()">⬆️ Restaurer JSON</button>
+          <button class="btn btn-danger btn-sm" onclick="doReset()">⚠️ Réinitialiser</button>
+        </div>
+        <input type="file" id="file-import" accept=".json" style="display:none" onchange="doImportJSON(this)"/>
+        <div style="border-top:1px solid #f1f5f9;padding-top:10px">
+          <div style="font-size:12px;font-weight:600;color:#64748b;margin-bottom:8px">📥 Import CSV (Numbers)</div>
+          <div class="import-zone" onclick="document.getElementById('file-csv').click()">📂 Cliquer pour importer un fichier .csv</div>
+          <input type="file" id="file-csv" accept=".csv,.txt" style="display:none" onchange="doImportCSV(this)"/>
+          <p style="font-size:10px;color:#94a3b8;margin-top:6px">
+            Colonnes : DATE ; BENEFICIAIRE ; NATURE ; BANQUE ; MOYEN ; DEBIT ; CREDIT ; CODE<br>
+            Séparateur : ; ou , ou tabulation • Dates : JJ/MM/AAAA ou AAAA-MM-JJ<br>
+            Libellés inconnus créés automatiquement • Lignes importées cochées ✅ par défaut
+          </p>
+        </div>
+        <p style="font-size:11px;color:#94a3b8;text-align:center;margin-top:10px">💾 Sauvegarde automatique dans Safari</p>
+      </div>
+    </div>
+    <div class="card card-p" style="margin-bottom:12px;border-color:#fecaca">
+      <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleSection('section-danger')">
+        <div style="font-size:13px;font-weight:600;color:#dc2626">⚠️ Zone dangereuse</div>
+        <span id="icon-section-danger" style="font-size:14px;color:#dc2626">▼</span>
+      </div>
+      <div id="section-danger" style="display:none;margin-top:14px">
+      
+      <!-- Archivage par année/banque -->
+      <div style="padding-bottom:14px;border-bottom:1px solid #fecaca;margin-bottom:14px">
+        <div style="font-size:12px;font-weight:600;margin-bottom:8px;color:#92400e">📦 Archiver et supprimer des transactions</div>
+        <p style="font-size:11px;color:#94a3b8;margin-bottom:10px">Les transactions seront exportées en CSV puis supprimées. Le solde initial sera recalculé automatiquement.</p>
+        <div class="grid2" style="margin-bottom:8px">
+          <div class="form-group" style="margin:0">
+            <label>Année</label>
+            <select id="arch-annee-sel">
+              <option value="">— Toutes —</option>
+              ${[...new Set(DB.transactions.map(t=>t.date.slice(0,4)))].sort().map(a=>'<option value="'+a+'">'+a+'</option>').join("")}
+            </select>
+          </div>
+          <div class="form-group" style="margin:0">
+            <label>Banque</label>
+            <select id="arch-banque-sel">
+              <option value="">— Toutes —</option>
+              ${sortAlpha(DB.banques,"nom").map(b=>'<option value="'+b.id+'">'+esc(b.nom)+'</option>').join("")}
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-danger btn-sm" style="width:100%" onclick="archiveTransactions()">
+          📦 Exporter CSV puis supprimer
+        </button>
+      </div>
+
+      <!-- Suppression par banque -->
+      <div class="form-group" style="margin-bottom:0">
+        <label>Supprimer toutes les transactions d'une banque</label>
+        <select id="del-banque-sel" style="margin-bottom:8px">
+          <option value="">— Choisir une banque —</option>
+          ${sortAlpha(DB.banques,"nom").map(b=>{
+            const nb=DB.transactions.filter(t=>+t.bqId===+b.id).length;
+            return `<option value="${b.id}">${esc(b.nom)} (${nb} transactions)</option>`;
+          }).join("")}
+        </select>
+        <button class="btn btn-danger btn-sm" style="width:100%" onclick="deleteByBanque()">
+          🗑️ Supprimer les transactions de cette banque
+        </button>
+      </div>
+      </div><!-- end section-danger -->
+    </div>
+    ${renderRefBanques()}
+    ${renderRefTable("👤 Bénéficiaires","beneficiaires","nom")}
+    ${renderRefTable("📂 Natures","natures","l")}
+    ${renderRefTable("💳 Moyens de paiement","moyens","l")}
+    ${renderRefTableCode("🏷️ Codes budget")}`;
+}
+
+// ─── Ref tables ───────────────────────────
+function renderRefBanques(){
+  const rows=sortAlpha(DB.banques,"nom").map(b=>`
+    <div class="ref-row" id="ref-row-banques-${b.id}">
+      <span class="ref-label">${esc(b.nom)} <span style="font-size:11px;color:#94a3b8">init: ${fmt(b.soldeInit||0)} €</span></span>
+      <div class="ref-actions">
+        <button class="icon-btn" onclick="editBanque(${b.id})">✏️</button>
+        <button class="icon-btn" onclick="deleteRefItem('banques',${b.id})">🗑️</button>
+      </div>
+    </div>`).join("");
+  return `<div class="card card-p" style="margin-bottom:12px">
+    <div style="font-size:13px;font-weight:600;margin-bottom:8px">🏦 Banques</div>
+    <div style="max-height:320px;overflow-y:auto;margin-bottom:8px">${rows||'<p style="font-size:12px;color:#94a3b8;padding:6px">Aucune banque</p>'}</div>
+    <div style="border-top:1px solid #f1f5f9;padding-top:8px">
+      <div class="grid2"><input type="text" id="add-banque-nom" placeholder="Nom"/><input type="number" id="add-banque-si" placeholder="Solde initial €" step="0.01"/></div>
+      <button class="btn btn-primary btn-sm" style="margin-top:8px;width:100%" onclick="addBanque()">+ Ajouter</button>
+    </div>
+  </div>`;
+}
+async function addBanque(){
+  const nomInp=document.getElementById("add-banque-nom");
+  const siInp=document.getElementById("add-banque-si");
+  const nom=(nomInp?.value||"").trim();if(!nom){showToast("Nom requis",true);return;}
+  if(DB.banques.find(b=>b.nom.toLowerCase()===nom.toLowerCase())){showToast("Cette banque existe déjà",true);return;}
+  const si=parseFloat(siInp?.value)||0;
+  try{
+    await supa('POST','banques',{nom,solde_init:si});
+    if(nomInp)nomInp.value="";
+    if(siInp)siInp.value="";
+    await new Promise(r=>setTimeout(r,500));
+    await loadDB();render();
+    showToast("Banque ajoutée ✅");
+  }catch(e){showToast("Erreur: "+e.message,true);}
+}
+function editBanque(id){
+  const b=find(DB.banques,id);if(!b)return;
+  const row=document.getElementById("ref-row-banques-"+id);if(!row)return;
+  row.innerHTML=`<div class="ref-edit-row">
+    <input type="text" id="eb-nom-${id}" value="${esc(b.nom)}" style="flex:2"/>
+    <input type="number" id="eb-si-${id}" value="${b.soldeInit||0}" step="0.01" style="flex:1"/>
+    <button class="icon-btn" onclick="confirmEditBanque(${id})">✅</button>
+    <button class="icon-btn" onclick="render()">✕</button>
+  </div>`;
+  document.getElementById("eb-nom-"+id)?.focus();
+}
+async function confirmEditBanque(id){
+  const nom=(document.getElementById("eb-nom-"+id)?.value||"").trim();
+  const si=parseFloat(document.getElementById("eb-si-"+id)?.value)||0;
+  if(!nom)return;
+  try{
+    await supa('PATCH','banques',{nom,solde_init:si},`id=eq.${id}`);
+    await loadDB();render();
+  }catch(e){showToast("Erreur: "+e.message,true);}
+}
+
+// Search state for ref tables
+const refSearch={};
+// Merge state for ref tables
+const mergeSelected={beneficiaires:new Set(),natures:new Set(),codes:new Set()};
+let mergeMode={beneficiaires:false,natures:false,codes:false};
+
+function renderRefTableOnly(key,field,title){
+  const container=document.getElementById('ref-table-'+key);
+  if(!container)return;
+  const q=(refSearch[key]||"").toLowerCase();
+  const allItems=sortAlpha(DB[key],field);
+  const items=q?allItems.filter(x=>(x[field]||"").toLowerCase().includes(q)):allItems;
+  const isMerge=mergeMode[key]||false;
+  const sel=mergeSelected[key]||new Set();
+  const rows=items.map(item=>`
+    <div class="ref-row" id="ref-row-${key}-${item.id}" style="${isMerge&&sel.has(item.id)?'background:#eef2ff;border-radius:8px;':''}">
+      ${isMerge?`<div class="${sel.has(item.id)?'sel-box on':'sel-box'}" onclick="toggleMergeSel('${key}',${item.id})">${sel.has(item.id)?'✓':''}</div>`:''}
+      <span class="ref-label">${esc(item[field])}</span>
+      ${!isMerge?`<div class="ref-actions">
+        <button class="icon-btn" onclick="startRefEdit('${key}',${item.id},'${field}')">✏️</button>
+        <button class="icon-btn" onclick="deleteRefItem('${key}',${item.id})">🗑️</button>
+      </div>`:''}
+    </div>`).join("") || `<p style="font-size:12px;color:#94a3b8;padding:6px">${q?"Aucun résultat":"Aucun élément"}</p>`;
+  container.innerHTML=rows;
+  // Update merge count without full render
+  if(isMerge){
+    const countEl=container.closest('.card')?.querySelector('.merge-count');
+    if(countEl)countEl.textContent='Mode fusion — '+sel.size+' sélectionné'+(sel.size>1?'s':'');
+  }
+}
+
+function renderRefTable(title,key,field){
+  const q=(refSearch[key]||"").toLowerCase();
+  const allItems=sortAlpha(DB[key],field);
+  const items=q?allItems.filter(x=>(x[field]||"").toLowerCase().includes(q)):allItems;
+  const isMerge=mergeMode[key]||false;
+  const sel=mergeSelected[key]||new Set();
+  const rows=items.map(item=>`
+    <div class="ref-row" id="ref-row-${key}-${item.id}" style="${isMerge&&sel.has(item.id)?'background:#eef2ff;border-radius:8px;':''}">
+      ${isMerge?`<div class="${sel.has(item.id)?'sel-box on':'sel-box'}" onclick="toggleMergeSel('${key}',${item.id})">${sel.has(item.id)?'✓':''}</div>`:''}
+      <span class="ref-label">${esc(item[field])}</span>
+      ${!isMerge?`<div class="ref-actions">
+        <button class="icon-btn" onclick="startRefEdit('${key}',${item.id},'${field}')">✏️</button>
+        <button class="icon-btn" onclick="deleteRefItem('${key}',${item.id})">🗑️</button>
+      </div>`:''}
+    </div>`).join("");
+
+  const mergeBar=isMerge?`<div class="merge-bar" style="background:#eef2ff;border-radius:10px;padding:10px;margin-bottom:8px;font-size:12px">
+    <div style="font-weight:600;color:#4338ca;margin-bottom:6px" class="merge-count">
+      Mode fusion — ${sel.size} sélectionné${sel.size>1?'s':''}
+    </div>
+    <p style="color:#64748b;font-size:11px;margin-bottom:8px">Cochez les doublons à fusionner, puis choisissez la cible</p>
+    ${sel.size>=2?`<div class="form-group" style="margin-bottom:8px"><label>Fusionner vers</label>
+      <select id="merge-target-${key}">
+        ${[...sel].map(id=>{const it=find(DB[key],id);return it?`<option value="${id}">${esc(it[field])}</option>`:''}).join("")}
+      </select></div>
+      <button class="btn btn-primary btn-sm merge-btn-confirm" style="width:100%;margin-bottom:6px" onclick="doMerge('${key}','${field}')">🔀 Fusionner</button>`:''}
+    <button class="btn btn-ghost btn-sm" style="width:100%" onclick="mergeMode['${key}']=false;mergeSelected['${key}']=new Set();render()">Annuler</button>
+  </div>`:'';
+
+  return `<div class="card card-p" style="margin-bottom:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <div style="font-size:13px;font-weight:600">${title} <span style="font-size:11px;color:#94a3b8;font-weight:400">(${allItems.length})</span></div>
+      ${!isMerge?`<button class="btn btn-ghost btn-xs" onclick="mergeMode['${key}']=true;mergeSelected['${key}']=new Set();render()" title="Fusionner des doublons">🔀 Fusionner</button>`:''}
+    </div>
+    ${mergeBar}
+    <div style="position:relative;margin-bottom:8px">
+      <span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:13px">🔍</span>
+      <input type="text" placeholder="Rechercher…" value="${esc(refSearch[key]||'')}"
+        style="padding-left:32px;font-size:12px;padding-top:7px;padding-bottom:7px"
+        oninput="refSearch['${key}']=this.value;renderRefTableOnly('${key}','${field}','${title}')" />
+    </div>
+    <div id="ref-table-${key}" style="max-height:280px;overflow-y:auto;margin-bottom:8px">
+      ${rows||`<p style="font-size:12px;color:#94a3b8;padding:6px">${q?"Aucun résultat":"Aucun élément"}</p>`}
+    </div>
+    ${!isMerge?`<div style="border-top:1px solid #f1f5f9;padding-top:8px">
+      <div class="add-quick">
+        <input type="text" id="add-${key}" placeholder="Nouveau…" onkeydown="if(event.key==='Enter')addRefItem('${key}','${field}')"/>
+        <button class="btn btn-primary btn-sm" onclick="addRefItem('${key}','${field}')">+</button>
+      </div>
+    </div>`:''}
+  </div>`;
+}
+
+function renderRefTableCode(title){
+  const items=sortAlpha(DB.codes,"code");
+  const isMerge=mergeMode['codes']||false;
+  const sel=mergeSelected['codes']||new Set();
+  const rows=items.map(item=>`
+    <div class="ref-row" id="ref-row-codes-${item.id}" style="${isMerge&&sel.has(item.id)?'background:#eef2ff;border-radius:8px;':''}">
+      ${isMerge?`<div class="${sel.has(item.id)?'sel-box on':'sel-box'}" onclick="toggleMergeSel('codes',${item.id})">${sel.has(item.id)?'✓':''}</div>`:''}
+      <span class="ref-label"><strong>${esc(item.code)}</strong> — ${esc(item.l)}</span>
+      ${!isMerge?`<div class="ref-actions">
+        <button class="icon-btn" onclick="startCodeEdit(${item.id})">✏️</button>
+        <button class="icon-btn" onclick="deleteRefItem('codes',${item.id})">🗑️</button>
+      </div>`:''}
+    </div>`).join("");
+
+  const mergeBar=isMerge?`<div class="merge-bar" style="background:#eef2ff;border-radius:10px;padding:10px;margin-bottom:8px;font-size:12px">
+    <div style="font-weight:600;color:#4338ca;margin-bottom:6px" class="merge-count">
+      Mode fusion — ${sel.size} sélectionné${sel.size>1?'s':''}
+    </div>
+    <p style="color:#64748b;font-size:11px;margin-bottom:8px">Cochez les doublons, puis choisissez la cible</p>
+    ${sel.size>=2?`<div class="form-group" style="margin-bottom:8px"><label>Fusionner vers</label>
+      <select id="merge-target-codes">
+        ${[...sel].map(id=>{const it=find(DB.codes,id);return it?`<option value="${id}">${esc(it.code)} — ${esc(it.l)}</option>`:''}).join("")}
+      </select></div>
+      <button class="btn btn-primary btn-sm merge-btn-confirm" style="width:100%;margin-bottom:6px" onclick="doMerge('codes','code')">🔀 Fusionner</button>`:''}
+    <button class="btn btn-ghost btn-sm" style="width:100%" onclick="mergeMode['codes']=false;mergeSelected['codes']=new Set();render()">Annuler</button>
+  </div>`:'';
+
+  return `<div class="card card-p" style="margin-bottom:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <div style="font-size:13px;font-weight:600">${title}</div>
+      ${!isMerge?`<button class="btn btn-ghost btn-xs" onclick="mergeMode['codes']=true;mergeSelected['codes']=new Set();render()">🔀 Fusionner</button>`:''}
+    </div>
+    ${mergeBar}
+    <div style="max-height:320px;overflow-y:auto;margin-bottom:8px">${rows||'<p style="font-size:12px;color:#94a3b8;padding:6px">Aucun élément</p>'}</div>
+    ${!isMerge?`<div style="border-top:1px solid #f1f5f9;padding-top:8px">
+      <div class="add-quick">
+        <input type="text" id="add-code" placeholder="CODE" style="max-width:80px"/>
+        <input type="text" id="add-code-l" placeholder="Libellé" onkeydown="if(event.key==='Enter')addCode()"/>
+        <button class="btn btn-primary btn-sm" onclick="addCode()">+</button>
+      </div>
+    </div>`:''}
+  </div>`;
+}
+
+function toggleMergeSel(key,id){
+  id=+id; // force number
+  if(!mergeSelected[key])mergeSelected[key]=new Set();
+  if(mergeSelected[key].has(id))mergeSelected[key].delete(id);
+  else mergeSelected[key].add(id);
+  // Full render needed to update counter and show target select
+  render();
+}
+
+function renderMergeBar(key,container){
+  const sel=mergeSelected[key]||new Set();
+  const field=key==="beneficiaires"?"nom":"l";
+  const targetOpts=[...sel].map(id=>{
+    const it=find(DB[key],+id);
+    return it?`<option value="${id}">${esc(it[field])}</option>`:'';
+  }).join("");
+  container.innerHTML=`
+    <div style="font-weight:600;color:#4338ca;margin-bottom:6px" class="merge-count">
+      ${sel.size} sélectionné${sel.size>1?'s':''}
+    </div>
+    <p style="color:#64748b;font-size:11px;margin-bottom:8px">Cochez les doublons, puis choisissez la cible</p>
+    ${sel.size>=2?`<div class="form-group" style="margin-bottom:8px"><label>Fusionner vers</label>
+      <select id="merge-target-${key}">${targetOpts}</select></div>
+      <button class="btn btn-primary btn-sm merge-btn-confirm" style="width:100%;margin-bottom:6px" onclick="doMerge('${key}','${field}')">🔀 Fusionner</button>`:''}
+    <button class="btn btn-ghost btn-sm" style="width:100%" onclick="mergeMode['${key}']=false;mergeSelected['${key}']=new Set();render()">Annuler</button>`;
+}
+
+async function doMerge(key,field){
+  const sel=mergeSelected[key];
+  if(!sel||sel.size<2){showToast("Sélectionnez au moins 2 éléments",true);return;}
+  const targetId=+document.getElementById("merge-target-"+key)?.value;
+  if(!targetId){showToast("Choisissez la cible",true);return;}
+  const target=find(DB[key],targetId);
+  if(!target){showToast("Cible introuvable",true);return;}
+  const toDelete=[...sel].filter(id=>+id!==+targetId);
+  const fkMap={beneficiaires:'bId',natures:'nId',codes:'cId'};
+  const nbTx=DB.transactions.filter(t=>{
+    const fk=fkMap[key]||'nId';
+    return toDelete.includes(+t[fk]);
+  }).length;
+  askConfirm(
+    `Fusionner ${sel.size} éléments ?`,
+    `${nbTx} transaction${nbTx>1?'s':''} seront rattachées à "${target[field]}". Les ${toDelete.length} doublon${toDelete.length>1?'s':''} seront supprimés.`,
+    async function(){
+      try{
+        showLoading(true);
+        const fkColMap={beneficiaires:'beneficiaire_id',natures:'nature_id',codes:'code_id'};
+        const fkCol=fkColMap[key]||'nature_id';
+        const fkMap2={beneficiaires:'bId',natures:'nId',codes:'cId'};
+        const fk=fkMap2[key]||'nId';
+        // Update all transactions pointing to duplicates
+        for(const dupId of toDelete){
+          const txIds=DB.transactions.filter(t=>+t[fk]===+dupId).map(t=>t.id);
+          if(txIds.length>0){
+            await supa('PATCH','transactions',{[fkCol]:targetId},`${fkCol}=eq.${dupId}`);
+          }
+          // Delete the duplicate
+          await supa('DELETE',key,'',`id=eq.${dupId}`);
+        }
+        mergeMode[key]=false;
+        mergeSelected[key]=new Set();
+        await loadDB();render();
+        showToast(`Fusion terminée ✅ — ${toDelete.length} doublon${toDelete.length>1?'s':''} supprimé${toDelete.length>1?'s':''}`);
+      }catch(e){showToast("Erreur: "+e.message,true);}
+      finally{showLoading(false);}
+    },
+    "Fusionner","#6366f1"
+  );
+}
+
+async function addRefItem(key,field){
+  const inp=document.getElementById("add-"+key);
+  const v=(inp?.value||"").trim();if(!v)return;
+  const exists=DB[key].find(x=>(x[field]||"").toLowerCase()===v.toLowerCase());
+  if(exists){showToast("Cette valeur existe déjà",true);return;}
+  const tableMap={beneficiaires:'beneficiaires',natures:'natures',moyens:'moyens'};
+  const fieldMap={nom:'nom',l:'libelle'};
+  try{
+    const row={};row[fieldMap[field]||field]=v;
+    await supa('POST',tableMap[key]||key,row);
+    if(inp)inp.value=""; // vider le champ
+    await new Promise(r=>setTimeout(r,500)); // attendre Supabase
+    await loadDB();
+    render();
+    showToast("Ajouté ✅");
+  }catch(e){showToast("Erreur: "+e.message,true);}
+}
+async function addCode(){
+  const codeInp=document.getElementById("add-code");
+  const lInp=document.getElementById("add-code-l");
+  const code=(codeInp?.value||"").trim().toUpperCase();
+  const l=(lInp?.value||"").trim();
+  if(!code||!l){showToast("Code et libellé requis",true);return;}
+  if(DB.codes.find(c=>c.code===code||c.l.toLowerCase()===l.toLowerCase())){showToast("Ce code existe déjà",true);return;}
+  try{
+    await supa('POST','codes',{code,libelle:l,budget_mensuel:0});
+    if(codeInp)codeInp.value="";
+    if(lInp)lInp.value="";
+    await new Promise(r=>setTimeout(r,500));
+    await loadDB();render();
+    showToast("Code ajouté ✅");
+  }catch(e){showToast("Erreur: "+e.message,true);}
+}
+function deleteRefItem(key,id){
+  askConfirm("Supprimer cet élément ?","Cette action est irréversible.",async function(){
+    try{
+      await supa('DELETE',key,'',`id=eq.${id}`);
+      await loadDB();render();showToast("Supprimé");
+    }catch(e){showToast("Erreur: "+e.message,true);}
+  });
+}
+function startRefEdit(key,id,field){
+  const item=find(DB[key],id);if(!item)return;
+  const row=document.getElementById("ref-row-"+key+"-"+id);if(!row)return;
+  row.innerHTML=`<div class="ref-edit-row">
+    <input type="text" id="ei-${id}" value="${esc(item[field])}"
+      onkeydown="if(event.key==='Enter')confirmRefEdit('${key}',${id},'${field}');if(event.key==='Escape')render()"/>
+    <button class="icon-btn" onclick="confirmRefEdit('${key}',${id},'${field}')">✅</button>
+    <button class="icon-btn" onclick="render()">✕</button>
+  </div>`;
+  const inp=document.getElementById("ei-"+id);if(inp){inp.focus();inp.select();}
+}
+async function confirmRefEdit(key,id,field){
+  const v=(document.getElementById("ei-"+id)?.value||"").trim();if(!v)return;
+  const fieldMap={nom:'nom',l:'libelle'};
+  try{
+    const row={};row[fieldMap[field]||field]=v;
+    await supa('PATCH',key,row,`id=eq.${id}`);
+    await loadDB();render();
+  }catch(e){showToast("Erreur: "+e.message,true);}
+}
+function startCodeEdit(id){
+  const item=find(DB.codes,id);if(!item)return;
+  const row=document.getElementById("ref-row-codes-"+id);if(!row)return;
+  row.innerHTML=`<div class="ref-edit-row">
+    <input type="text" id="ec-${id}" value="${esc(item.code)}" style="max-width:70px"
+      onkeydown="if(event.key==='Enter')confirmCodeEdit(${id})"/>
+    <input type="text" id="el-${id}" value="${esc(item.l)}"
+      onkeydown="if(event.key==='Enter')confirmCodeEdit(${id});if(event.key==='Escape')render()"/>
+    <button class="icon-btn" onclick="confirmCodeEdit(${id})">✅</button>
+    <button class="icon-btn" onclick="render()">✕</button>
+  </div>`;
+  document.getElementById("ec-"+id)?.focus();
+}
+async function confirmCodeEdit(id){
+  const c=(document.getElementById("ec-"+id)?.value||"").trim().toUpperCase();
+  const l=(document.getElementById("el-"+id)?.value||"").trim();if(!c||!l)return;
+  try{
+    await supa('PATCH','codes',{code:c,libelle:l},`id=eq.${id}`);
+    await loadDB();render();
+  }catch(e){showToast("Erreur: "+e.message,true);}
+}
+
+// ═══════════════════════════════════════════
+// FORMULAIRE TRANSACTION
+// ═══════════════════════════════════════════
+let editingTxId=null;
+function openNewTx(){editingTxId=null;showTxModal(null);}
+function openEditTx(id){editingTxId=id;showTxModal(find(DB.transactions,id));}
+
+function showTxModal(tx){
+  document.getElementById("modal-title").textContent=tx?"Modifier la transaction":"Nouvelle transaction";
+  document.getElementById("modal-body").innerHTML=`
+    <div class="form-group"><label>Date *</label><input type="date" id="tx-date" value="${tx?.date||today()}"/></div>
+    <div class="form-group"><label>Bénéficiaire</label>
+      ${renderSearchSelect({uid:'tx-benef',items:DB.beneficiaires,field:'nom',selectedId:tx?.bId,placeholder:'Chercher bénéficiaire…'})}
+      <div id="pan-benef" class="new-inline"><div class="add-quick">
+        <input type="text" id="tx-new-benef" placeholder="Nom du bénéficiaire"/>
+        <button class="btn btn-primary btn-xs" onclick="createTxBenef()">Créer</button>
+        <button class="btn btn-ghost btn-xs" onclick="document.getElementById('pan-benef').classList.remove('show')">✕</button>
+      </div></div>
+    </div>
+    <div class="form-group"><label>Nature</label>
+      ${renderSearchSelect({uid:'tx-nature',items:DB.natures,field:'l',selectedId:tx?.nId,placeholder:'Chercher nature…'})}
+      <div id="pan-nature" class="new-inline"><div class="add-quick">
+        <input type="text" id="tx-new-nature" placeholder="Libellé nature"/>
+        <button class="btn btn-primary btn-xs" onclick="createTxNature()">Créer</button>
+        <button class="btn btn-ghost btn-xs" onclick="document.getElementById('pan-nature').classList.remove('show')">✕</button>
+      </div></div>
+    </div>
+    <div class="grid2">
+      <div class="form-group"><label>Banque *</label>
+        ${renderSearchSelect({uid:'tx-bq',items:DB.banques,field:'nom',selectedId:tx?.bqId,placeholder:'Banque…'})}
+        <div id="pan-bq" class="new-inline"><div class="add-quick">
+          <input type="text" id="tx-new-bq" placeholder="Nom banque"/>
+          <button class="btn btn-primary btn-xs" onclick="createTxBq()">Créer</button>
+          <button class="btn btn-ghost btn-xs" onclick="document.getElementById('pan-bq').classList.remove('show')">✕</button>
+        </div></div>
+      </div>
+      <div class="form-group"><label>Moyen *</label>
+        ${renderSearchSelect({uid:'tx-moyen',items:DB.moyens,field:'l',selectedId:tx?.mId,placeholder:'Moyen…'})}
+        <div id="pan-moyen" class="new-inline"><div class="add-quick">
+          <input type="text" id="tx-new-moyen" placeholder="Ex: Chèque…"/>
+          <button class="btn btn-primary btn-xs" onclick="createTxMoyen()">Créer</button>
+          <button class="btn btn-ghost btn-xs" onclick="document.getElementById('pan-moyen').classList.remove('show')">✕</button>
+        </div></div>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="form-group"><label>Débit (€)</label><input type="number" id="tx-debit" step="0.01" min="0" value="${tx?.debit||""}" placeholder="0.00"/></div>
+      <div class="form-group"><label>Crédit (€)</label><input type="number" id="tx-credit" step="0.01" min="0" value="${tx?.credit||""}" placeholder="0.00"/></div>
+    </div>
+    <div class="form-group"><label>Code budget</label>
+      ${renderSearchSelect({uid:'tx-code',items:DB.codes,field:'l',selectedId:tx?.cId,placeholder:'Code budget…'})}
+      <div id="pan-code" class="new-inline"><div class="add-quick">
+        <input type="text" id="tx-new-code" placeholder="CODE" style="max-width:80px"/>
+        <input type="text" id="tx-new-code-l" placeholder="Libellé"/>
+        <button class="btn btn-primary btn-xs" onclick="createTxCode()">Créer</button>
+        <button class="btn btn-ghost btn-xs" onclick="document.getElementById('pan-code').classList.remove('show')">✕</button>
+      </div></div>
+    </div>
+    <div class="form-group"><label>Notes</label>
+      <input type="text" id="tx-notes" placeholder="Notes libres…" value="${esc(tx?.notes||'')}"/>
+    </div>
+    <div class="grid2" style="margin-top:8px">
+      <button class="btn btn-ghost" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-primary" onclick="saveTx()">Enregistrer</button>
+    </div>`;
+  document.getElementById("modal-overlay").style.display="flex";
+  setTimeout(()=>{
+    initSel('tx-benef',{items:DB.beneficiaires,field:'nom',onNew:()=>document.getElementById('pan-benef').classList.add('show')});
+    initSel('tx-nature',{items:DB.natures,field:'l',onNew:()=>document.getElementById('pan-nature').classList.add('show')});
+    initSel('tx-bq',{items:DB.banques,field:'nom',onNew:()=>document.getElementById('pan-bq').classList.add('show')});
+    initSel('tx-moyen',{items:DB.moyens,field:'l',onNew:()=>document.getElementById('pan-moyen').classList.add('show')});
+    initSel('tx-code',{items:DB.codes,field:'l',onNew:()=>document.getElementById('pan-code').classList.add('show')});
+  },50);
+}
+
+function addSelOption(selWid,item,labelFn){
+  if(!window._selCfg)return;
+  const cfg=window._selCfg[selWid];
+  if(cfg){cfg.items=[...cfg.items,item];}
+  document.getElementById("shid-"+selWid).value=item.id;
+  document.getElementById("sinp-"+selWid).value=labelFn(item);
+}
+
+async function supaPostAndGet(table,row,mapper){
+  await supa('POST',table,row);
+  // Fetch the just-created row
+  const field=Object.keys(row)[0];
+  const val=encodeURIComponent(row[field]);
+  const res=await supa('GET',table,'',`${field}=eq.${val}&order=id.desc&limit=1`);
+  return res&&res[0]?mapper(res[0]):null;
+}
+async function createTxBenef(){
+  const v=(document.getElementById("tx-new-benef")?.value||"").trim();if(!v)return;
+  try{const b=await supaPostAndGet('beneficiaires',{nom:v},mapBenef);if(b){DB.beneficiaires.push(b);addSelOption('tx-benef',b,x=>x.nom);}document.getElementById('pan-benef').classList.remove('show');showToast("Bénéficiaire créé");}
+  catch(e){showToast("Erreur: "+e.message,true);}
+}
+async function createTxNature(){
+  const v=(document.getElementById("tx-new-nature")?.value||"").trim();if(!v)return;
+  try{const n=await supaPostAndGet('natures',{libelle:v},mapNature);if(n){DB.natures.push(n);addSelOption('tx-nature',n,x=>x.l);}document.getElementById('pan-nature').classList.remove('show');showToast("Nature créée");}
+  catch(e){showToast("Erreur: "+e.message,true);}
+}
+async function createTxBq(){
+  const v=(document.getElementById("tx-new-bq")?.value||"").trim();if(!v)return;
+  try{const b=await supaPostAndGet('banques',{nom:v,solde_init:0},mapBq);if(b){DB.banques.push(b);addSelOption('tx-bq',b,x=>x.nom);}document.getElementById('pan-bq').classList.remove('show');showToast("Banque créée");}
+  catch(e){showToast("Erreur: "+e.message,true);}
+}
+async function createTxMoyen(){
+  const v=(document.getElementById("tx-new-moyen")?.value||"").trim();if(!v)return;
+  try{const m=await supaPostAndGet('moyens',{libelle:v},mapMoyen);if(m){DB.moyens.push(m);addSelOption('tx-moyen',m,x=>x.l);}document.getElementById('pan-moyen').classList.remove('show');showToast("Moyen créé");}
+  catch(e){showToast("Erreur: "+e.message,true);}
+}
+async function createTxCode(){
+  const c=(document.getElementById("tx-new-code")?.value||"").trim().toUpperCase();
+  const l=(document.getElementById("tx-new-code-l")?.value||"").trim();
+  if(!c||!l){showToast("Code et libellé requis",true);return;}
+  try{const code=await supaPostAndGet('codes',{code:c,libelle:l,budget_mensuel:0},mapCode);if(code){DB.codes.push(code);addSelOption('tx-code',code,x=>x.l);}document.getElementById('pan-code').classList.remove('show');showToast("Code créé");}
+  catch(e){showToast("Erreur: "+e.message,true);}
+}
+
+async function saveTx(){
+  const date=document.getElementById("tx-date")?.value;
+  const bqId=selGetValue('tx-bq');const mId=selGetValue('tx-moyen');
+  if(!date||!bqId||!mId){showToast("Date, banque et moyen sont obligatoires",true);return;}
+  const row={
+    date,
+    beneficiaire_id:+selGetValue('tx-benef')||null,
+    nature_id:+selGetValue('tx-nature')||null,
+    banque_id:+bqId,
+    moyen_id:+mId,
+    code_id:+selGetValue('tx-code')||null,
+    debit:parseFloat(document.getElementById("tx-debit")?.value)||0,
+    credit:parseFloat(document.getElementById("tx-credit")?.value)||0,
+    verifie:editingTxId?(find(DB.transactions,editingTxId)?.ok||false):false,
+    notes:(document.getElementById("tx-notes")?.value||"").trim()||null,
+  };
+  try{
+    if(editingTxId){
+      await supa('PATCH','transactions',row,`id=eq.${editingTxId}`);
+    } else {
+      await supa('POST','transactions',row);
+      await new Promise(r=>setTimeout(r,800));
+    }
+    closeModal();
+    await loadDB();render();
+    showToast(editingTxId?"Modifiée":"Ajoutée");
+  }catch(e){showToast("Erreur: "+e.message,true);}
+}
+function deleteTx(id){
+  askConfirm("Supprimer cette transaction ?","Cette action est irréversible.",async function(){
+    try{await supa('DELETE','transactions','',`id=eq.${id}`);await loadDB();render();showToast("Supprimée");}
+    catch(e){showToast("Erreur: "+e.message,true);}
+  });
+}
+function duplicateTx(id){
+  const t=find(DB.transactions,id);if(!t)return;
+  const benef=find(DB.beneficiaires,t.bId);
+  document.getElementById("modal-title").textContent="Dupliquer l'opération";
+  document.getElementById("modal-body").innerHTML=`
+    <p style="font-size:13px;color:#475569;margin-bottom:6px">
+      <strong>${esc(getLabel(benef))}</strong> — ${t.date}<br>
+      <span style="color:${t.credit>0?'#059669':'#dc2626'}">${t.credit>0?'+':'-'}${fmt(t.credit>0?t.credit:t.debit)} €</span>
+    </p>
+    <p style="font-size:12px;color:#94a3b8;margin-bottom:16px">Où souhaitez-vous dupliquer cette opération ?</p>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <button class="btn btn-primary" style="justify-content:flex-start;gap:10px" onclick="closeModal();duplicateTxToTx(${id})">
+        <span style="font-size:18px">📋</span>
+        <div style="text-align:left"><strong>Dans Transactions</strong><br>
+        <span style="font-size:11px;font-weight:400">Copie modifiable — ajustez date, montant…</span></div>
+      </button>
+      <button class="btn btn-amber" style="justify-content:flex-start;gap:10px" onclick="closeModal();duplicateTxToRec(${id})">
+        <span style="font-size:18px">🔄</span>
+        <div style="text-align:left"><strong>Dans Récurrents</strong><br>
+        <span style="font-size:11px;font-weight:400">Créer une opération récurrente à partir de celle-ci</span></div>
+      </button>
+      <button class="btn btn-ghost" onclick="closeModal()">Annuler</button>
+    </div>`;
+  document.getElementById("modal-overlay").style.display="flex";
+}
+async function duplicateTxToTx(id){
+  const t=find(DB.transactions,id);if(!t)return;
+  const row={date:t.date,beneficiaire_id:t.bId,nature_id:t.nId,banque_id:t.bqId,moyen_id:t.mId,code_id:t.cId,debit:t.debit,credit:t.credit,verifie:false};
+  try{
+    const res=await supa('POST','transactions',row);
+    await loadDB();render();
+    if(res&&res[0])openEditTx(res[0].id);
+    showToast("Dupliquée dans Transactions");
+  }catch(e){showToast("Erreur: "+e.message,true);}
+}
+async function duplicateTxToRec(id){
+  const t=find(DB.transactions,id);if(!t)return;
+  const benef=find(DB.beneficiaires,t.bId);
+  const row={
+    nom:getLabel(benef)||"Nouveau récurrent",
+    freq:"mensuel",jour:+t.date.slice(8)||1,date_fixe:null,
+    beneficiaire_id:t.bId,nature_id:t.nId,banque_id:t.bqId,
+    moyen_id:t.mId,code_id:t.cId,
+    debit:t.debit,credit:t.credit,actif:false,
+  };
+  try{
+    await supa('POST','recurrents',row);
+    await new Promise(r=>setTimeout(r,800));
+    await loadDB();
+    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+    document.querySelector('[data-tab="recurrents"]').classList.add("active");
+    currentTab="recurrents";
+    closeModal();
+    render();
+    showToast("Créé dans Récurrents ✅ — vérifiez et activez");
+  }catch(e){showToast("Erreur: "+e.message,true);}
+}
+function closeModal(){
+  document.getElementById("modal-overlay").style.display="none";
+  // Reset editing state
+  editingRecId=null;
+  editingTxId=null;
+}
+
+// ═══════════════════════════════════════════
+// INIT SEARCHABLE SELECTS après render
+// ═══════════════════════════════════════════
+function initAllSels(){
+  // Rien à faire ici, les selects sont initialisés à la demande
+}
+
+// ═══════════════════════════════════════════
+// IMPORT CSV
+// ═══════════════════════════════════════════
+function doImportCSV(input){
+  const file=input.files[0];if(!file)return;
+  askImportMode(async function(mode){
+    const r=new FileReader();
+    r.onload=async e=>{
+      try{
+        const text=e.target.result;
+        const lines=text.split(/\r?\n/).filter(l=>l.trim());
+        if(lines.length<2){showToast("Fichier vide",true);return;}
+        const sep=lines[0].includes(";")?";":lines[0].includes("\t")?"\t":",";
+        const headers=lines[0].split(sep).map(h=>clean(h).toLowerCase()
+          .replace(/[éèê]/g,"e").replace(/[àâ]/g,"a").replace(/[ùû]/g,"u").replace(/[îï]/g,"i").replace(/[ôö]/g,"o").replace(/ç/g,"c"));
+
+        const iDate=findCol(headers,["date"]);
+        const iBenef=findCol(headers,["beneficiaire","beneficiary","tiers","libelle"]);
+        const iNature=findCol(headers,["nature","description","motif","categorie"]);
+        // Prefer full "banque" column over short "bq"
+        const iBanque=findCol(headers,["banque","bank","etablissement"]);
+        const iBqShort=findCol(headers,["bq"]);
+        const iBq=iBanque>=0?iBanque:iBqShort;
+        const iMoyen=findCol(headers,["moyen","type","mode","instrument","paiement","reglement"]);
+        const iDebit=findCol(headers,["debit"]);
+        const iCredit=findCol(headers,["credit"]);
+        const iCode=findCol(headers,["code","budget"]);
+        
+        // Debug: log detected columns
+        console.log("Colonnes détectées:",{iDate,iBenef,iNature,iBq,iMoyen,iDebit,iCredit,iCode});
+        console.log("En-têtes:",headers);
+
+        if(mode==="replace"){
+          showLoading(true);
+          await supa('DELETE','transactions','','id=gt.0');
+          await supa('DELETE','recurrents','','id=gt.0');
+          await supa('DELETE','codes','','id=gt.0');
+          await supa('DELETE','moyens','','id=gt.0');
+          await supa('DELETE','natures','','id=gt.0');
+          await supa('DELETE','beneficiaires','','id=gt.0');
+          await supa('DELETE','banques','','id=gt.0');
+          DB={banques:[],beneficiaires:[],natures:[],moyens:[],codes:[],
+              transactions:[],budgets:{},recurrents:[],appTitle:DB.appTitle};
+        } else {
+          // Mode "Ajouter" : reload all ref tables from Supabase first to avoid duplicates
+          showLoading(true);
+          await loadDB();
+        }
+
+        let added=0,skipped=0,errors=[],txBatch=[];
+        for(let i=1;i<lines.length;i++){
+          if(!lines[i].trim()){skipped++;continue;}
+          const cols=splitCSV(lines[i],sep);
+          if(cols.length<2){skipped++;continue;}
+          const rawDate=iDate>=0?clean(cols[iDate]||""):"";
+          const date=parseDate(rawDate);
+          if(!date){
+            if(i<=3)errors.push(`Ligne ${i+1}: date invalide "${rawDate}"`);
+            skipped++;continue;
+          }
+          const debit=parseFR(cols[iDebit]);
+          const credit=parseFR(cols[iCredit]);
+          const benefNom=clean(cols[iBenef]);
+          const natureLib=clean(cols[iNature]);
+          const bqNom=clean(cols[iBq]);
+          const moyenLib=clean(cols[iMoyen]);
+          const codeStr=clean(cols[iCode]);
+
+          let benef=await supaFindOrCreate('beneficiaires','nom',benefNom,mapBenef);
+          let nature=await supaFindOrCreate('natures','libelle',natureLib,mapNature);
+          let bq=await supaFindOrCreateBq(bqNom);
+          let moyen=await supaFindOrCreate('moyens','libelle',moyenLib,mapMoyen);
+          let code=null;
+          if(codeStr){
+            // Check memory
+            code=DB.codes.find(c=>c.code.toLowerCase()===codeStr.toLowerCase()||c.l.toLowerCase()===codeStr.toLowerCase());
+            if(!code){
+              // Check Supabase
+              try{
+                const exc=await supa('GET','codes','',`code=ilike.${encodeURIComponent(codeStr)}&limit=1`);
+                if(exc&&exc.length>0){code=mapCode(exc[0]);DB.codes.push(code);}
+                else{
+                  const codeVal=codeStr.toUpperCase().slice(0,6);
+                  await supa('POST','codes',{code:codeVal,libelle:codeStr,budget_mensuel:0});
+                  const cr=await supa('GET','codes','',`code=eq.${encodeURIComponent(codeVal)}&order=id.desc&limit=1`);
+                  if(cr&&cr.length>0){code=mapCode(cr[0]);DB.codes.push(code);}
+                }
+              }catch(e){}
+            }
+          }
+          txBatch.push({date,beneficiaire_id:benef?.id||null,nature_id:nature?.id||null,banque_id:bq?.id||null,moyen_id:moyen?.id||null,code_id:code?.id||null,debit,credit,verifie:true});
+          added++;
+          // Insert in batches of 200
+          if(txBatch.length>=200){
+            try{await supa('POST','transactions',txBatch);}catch(e){skipped+=txBatch.length;added-=txBatch.length;}
+            txBatch=[];
+          }
+        }
+        // Flush remaining batch
+        if(txBatch.length>0){
+          try{await supa('POST','transactions',txBatch);}
+          catch(e){skipped+=txBatch.length;added-=txBatch.length;}
+        }
+        await loadDB();render();
+        const errMsg=errors.length>0?" — "+errors[0]:"";
+        showToast(`${added} transactions importées${skipped>0?" ("+skipped+" ignorées"+errMsg+")":""}`,added===0);
+      }catch(err){console.error(err);showToast("Erreur import : "+err.message,true);}
+    };
+    r.readAsText(file,"UTF-8");
+    input.value="";
+  });
+}
+
+function askImportMode(cb){
+  document.getElementById("modal-title").textContent="Mode d'import";
+  document.getElementById("modal-body").innerHTML=`
+    <p style="font-size:13px;color:#475569;margin-bottom:16px">Comment souhaitez-vous importer ce fichier CSV ?</p>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <button class="btn btn-primary" style="justify-content:flex-start;gap:10px" onclick="closeModal();_importCB('add')">
+        <span style="font-size:18px">➕</span>
+        <div style="text-align:left"><strong>Ajouter</strong><br><span style="font-size:11px;font-weight:400">Les nouvelles transactions s'ajoutent. Les tables sont enrichies.</span></div>
+      </button>
+      <button class="btn btn-amber" style="justify-content:flex-start;gap:10px" onclick="closeModal();_importCB('replace')">
+        <span style="font-size:18px">🔄</span>
+        <div style="text-align:left"><strong>Remplacer tout</strong><br><span style="font-size:11px;font-weight:400">Toutes les transactions et tables sont remplacées par le fichier.</span></div>
+      </button>
+      <button class="btn btn-ghost" onclick="closeModal()">Annuler</button>
+    </div>`;
+  window._importCB=cb;
+  document.getElementById("modal-overlay").style.display="flex";
+}
+
+// ═══════════════════════════════════════════
+// HELPERS IMPORT
+// ═══════════════════════════════════════════
+function clean(v){return(v||"").replace(/"/g,"").trim();}
+
+async function supaFindOrCreate(table,field,val,mapper){
+  if(!val||!val.trim())return null;
+  val=val.trim();
+  const dbKey={beneficiaires:'beneficiaires',natures:'natures',moyens:'moyens',banques:'banques',codes:'codes'}[table]||table;
+  const memField=field==='libelle'?'l':field; // map DB field name to memory field name
+  // 1. Check in memory first
+  let item=DB[dbKey]?.find(x=>{
+    const v=x[memField]||x.nom||x.l||"";
+    return v.toLowerCase()===val.toLowerCase();
+  });
+  if(item)return item;
+  // 2. Check in Supabase (avoid duplicate on re-import)
+  try{
+    const existing=await supa('GET',table,'',`${field}=ilike.${encodeURIComponent(val)}&limit=1`);
+    if(existing&&existing.length>0){
+      item=mapper(existing[0]);
+      if(!DB[dbKey])DB[dbKey]=[];
+      DB[dbKey].push(item);
+      return item;
+    }
+  }catch(e){}
+  // 3. Create new
+  try{
+    const row={};row[field]=val;
+    await supa('POST',table,row);
+    const created=await supa('GET',table,'',`${field}=ilike.${encodeURIComponent(val)}&order=id.desc&limit=1`);
+    if(created&&created.length>0){
+      item=mapper(created[0]);
+      if(!DB[dbKey])DB[dbKey]=[];
+      DB[dbKey].push(item);
+      return item;
+    }
+  }catch(e){console.error("supaFindOrCreate error:",table,field,val,e);}
+  return null;
+}
+
+async function supaFindOrCreateBq(nom){
+  if(!nom||!nom.trim())return DB.banques[0]||null;
+  nom=nom.trim();
+  // Check memory
+  let b=DB.banques.find(x=>x.nom.toLowerCase()===nom.toLowerCase());
+  if(b)return b;
+  // Check Supabase
+  try{
+    const existing=await supa('GET','banques','',`nom=ilike.${encodeURIComponent(nom)}&limit=1`);
+    if(existing&&existing.length>0){
+      b=mapBq(existing[0]);DB.banques.push(b);return b;
+    }
+    // Create
+    await supa('POST','banques',{nom,solde_init:0});
+    const created=await supa('GET','banques','',`nom=ilike.${encodeURIComponent(nom)}&order=id.desc&limit=1`);
+    if(created&&created.length>0){b=mapBq(created[0]);DB.banques.push(b);return b;}
+  }catch(e){console.error("supaFindOrCreateBq:",e);}
+  return DB.banques[0]||null;
+}
+
+function parseFR(v){
+  // Handles Numbers export format: "50,00 €" "1 000,00 €" "75,50 €"
+  if(!v)return 0;
+  let s=String(v).replace(/"/g,"").trim();
+  if(!s||s==="-")return 0;
+  // Remove currency symbol and any non-numeric chars except , . - 
+  s=s.replace(/[€$£\s]/g,"");   // remove € and spaces
+  s=s.replace(/[^0-9,\.\-]/g,""); // remove anything else
+  if(!s)return 0;
+  // Now handle decimal: if comma present -> French decimal sep
+  if(s.includes(",")){
+    s=s.replace(/\./g,"");    // remove dot thousand sep
+    s=s.replace(",",".");      // comma -> dot decimal
+  }
+  return parseFloat(s)||0;
+}
+function findOrCreate(arr,field,val){
+  if(!val)return null;
+  let item=arr.find(x=>(x[field]||"").toLowerCase()===val.toLowerCase());
+  if(!item){item={id:uid()};item[field]=val;arr.push(item);}
+  return item;
+}
+function findOrCreateBq(nom){
+  if(!nom)return DB.banques[0]||null;
+  let b=DB.banques.find(x=>x.nom.toLowerCase()===nom.toLowerCase());
+  if(!b){b={id:uid(),nom,soldeInit:0};DB.banques.push(b);}
+  return b;
+}
+function findCol(headers,names){
+  for(const n of names){const i=headers.findIndex(h=>h.includes(n));if(i>=0)return i;}
+  return -1;
+}
+function splitCSV(line,sep){
+  const r=[];let cur="",inQ=false;
+  for(let i=0;i<line.length;i++){
+    const c=line[i];
+    if(c==='"'){inQ=!inQ;}else if(c===sep&&!inQ){r.push(cur);cur="";}else cur+=c;
+  }
+  r.push(cur);return r;
+}
+function parseDate(s){
+  if(!s)return null;
+  s=s.trim();
+  // DD/MM/YYYY or DD-MM-YYYY or DD.MM.YYYY
+  const m1=s.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{4})$/);
+  if(m1)return`${m1[3]}-${m1[2].padStart(2,'0')}-${m1[1].padStart(2,'0')}`;
+  // YYYY-MM-DD
+  const m2=s.match(/^(\d{4})[\/\-\.](\d{2})[\/\-\.](\d{2})$/);
+  if(m2)return`${m2[1]}-${m2[2]}-${m2[3]}`;
+  // DD/MM/YY (2-digit year) -> assume 2000+
+  const m3=s.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{2})$/);
+  if(m3){const yr=+m3[3]>=50?`19${m3[3]}`:`20${m3[3]}`;return`${yr}-${m3[2].padStart(2,'0')}-${m3[1].padStart(2,'0')}`;}
+  return null;
+}
+
+// ═══════════════════════════════════════════
+// EXPORT
+// ═══════════════════════════════════════════
+function doExportCSV(){
+  // Use active filters from Transactions tab
+  const txsToExport=DB.transactions.filter(t=>{
+    const b=find(DB.beneficiaires,t.bId),n=find(DB.natures,t.nId);
+    const txt=[b?.nom,n?.l].filter(Boolean).join(" ").toLowerCase();
+    if(txSearch&&!txt.includes(txSearch.toLowerCase()))return false;
+    if(txFBq&&+t.bqId!==+txFBq)return false;
+    if(txFCode&&+t.cId!==+txFCode)return false;
+    if(txShowVerif==="yes"&&!t.ok)return false;
+    if(txShowVerif==="no"&&t.ok)return false;
+    const d=t.date;
+    if(txPMode==="mois"&&txFMois&&!d.startsWith(txFMois))return false;
+    if(txPMode==="annee"&&txPAnnee&&!d.startsWith(txPAnnee))return false;
+    if(txPMode==="periode"){
+      if(txPDebut&&d<txPDebut)return false;
+      if(txPFin&&d>txPFin)return false;
+    }
+    return true;
+  }).sort((a,b)=>b.date.localeCompare(a.date));
+  const bom="\uFEFF";
+  const hdr="DATE;BENEFICIAIRE;NATURE;BANQUE;MOYEN;DEBIT;CREDIT;CODE;VERIFIE;NOTES\n";
+  const rows=txsToExport.map(t=>[
+    t.date,
+    find(DB.beneficiaires,t.bId)?.nom||"",
+    find(DB.natures,t.nId)?.l||"",
+    find(DB.banques,t.bqId)?.nom||"",
+    find(DB.moyens,t.mId)?.l||"",
+    t.debit,t.credit,
+    find(DB.codes,t.cId)?.code||"",
+    t.ok?"oui":"non",
+    (t.notes||"").replace(/;/g," ")
+  ].join(";")).join("\n");
+  dl(new Blob([bom+hdr+rows],{type:"text/csv;charset=utf-8;"}),"finances_export_"+today()+".csv");
+  showToast(`Export CSV : ${txsToExport.length} transactions téléchargées`);
+}
+function doExportJSON(){
+  // Export current DB snapshot as JSON backup
+  dl(new Blob([JSON.stringify(DB,null,2)],{type:"application/json"}),"finances_backup_"+today()+".json");
+  showToast("Sauvegarde JSON téléchargée");
+}
+async function doImportJSON(input){
+  const file=input.files[0];if(!file)return;
+  const r=new FileReader();
+  r.onload=async e=>{
+    try{
+      const data=JSON.parse(e.target.result);
+      if(!data.transactions||!data.banques){showToast("Format invalide",true);return;}
+      showToast("Import JSON non disponible en mode cloud — utilisez l'import CSV",true);
+      // Note: JSON restore would require full Supabase migration - use CSV import instead
+    }catch(err){showToast("Fichier invalide",true);}
+  };
+  r.readAsText(file);input.value="";
+}
+function toggleSection(id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const isOpen=el.style.display!=='none';
+  el.style.display=isOpen?'none':'block';
+  const icon=document.getElementById('icon-'+id);
+  if(icon)icon.textContent=isOpen?'▼':'▲';
+}
+
+function toggleDashBanque(id){
+  if(dashBanquesSelected.has(String(id))){
+    dashBanquesSelected.delete(String(id));
+  }else{
+    dashBanquesSelected.add(String(id));
+  }
+  dashBanqueFilter=dashBanquesSelected.size>0?[...dashBanquesSelected].join(','):'';
+  render();
+}
+
+async function archiveTransactions(){
+  const annee=document.getElementById("arch-annee-sel")?.value||"";
+  const bqId=document.getElementById("arch-banque-sel")?.value||"";
+  
+  // Filter transactions to archive
+  let toArchive=DB.transactions.filter(t=>{
+    if(annee&&!t.date.startsWith(annee))return false;
+    if(bqId&&+t.bqId!==+bqId)return false;
+    return true;
+  });
+  
+  if(toArchive.length===0){showToast("Aucune transaction correspondante",true);return;}
+  
+  const label=`${annee||"toutes années"}${bqId?" — "+find(DB.banques,bqId)?.nom:""}`;
+  askConfirm(
+    `Archiver ${toArchive.length} transaction${toArchive.length>1?'s':''} ?`,
+    `Export CSV de "${label}" puis suppression. Le solde initial sera recalculé.`,
+    async function(){
+      // 1. Export CSV
+      const bom="\uFEFF";
+      const hdr="DATE;BENEFICIAIRE;NATURE;BANQUE;MOYEN;DEBIT;CREDIT;CODE;VERIFIE\n";
+      const rows=toArchive.map(t=>[
+        t.date,
+        find(DB.beneficiaires,t.bId)?.nom||"",
+        find(DB.natures,t.nId)?.l||"",
+        find(DB.banques,t.bqId)?.nom||"",
+        find(DB.moyens,t.mId)?.l||"",
+        t.debit,t.credit,
+        find(DB.codes,t.cId)?.code||"",
+        t.ok?"oui":"non"
+      ].join(";")).join("\n");
+      dl(new Blob([bom+hdr+rows],{type:"text/csv;charset=utf-8;"}),
+        `archive_${annee||"tout"}_${bqId?find(DB.banques,bqId)?.nom:"toutesbanques"}_${today()}.csv`);
+      
+      await new Promise(r=>setTimeout(r,500));
+      
+      // 2. Recalculate soldeInit for affected banks
+      // Formula: newSoldeInit = currentSolde - sum(remaining transactions after deletion)
+      // = (soldeInit + sum(allTx)) - sum(allTx - archivedTx)
+      // = soldeInit + sum(archivedTx)  <- add back the archived transactions
+      const archivedIds=new Set(toArchive.map(t=>t.id));
+      const banquesAffectees=bqId?[find(DB.banques,+bqId)]:
+        [...new Set(toArchive.map(t=>t.bqId))].map(id=>find(DB.banques,+id)).filter(Boolean);
+      
+      for(const b of banquesAffectees){
+        if(!b)continue;
+        // Current solde = soldeInit + ALL transactions for this bank
+        const allTxBanque=DB.transactions.filter(t=>+t.bqId===+b.id);
+        const currentSolde=(b.soldeInit||0)+allTxBanque.reduce((s,t)=>s+(+t.credit)-(+t.debit),0);
+        // Remaining transactions after archive
+        const remainingTx=allTxBanque.filter(t=>!archivedIds.has(t.id));
+        const remainingSum=remainingTx.reduce((s,t)=>s+(+t.credit)-(+t.debit),0);
+        // New soldeInit = currentSolde - remainingSum (so total stays the same)
+        const newSoldeInit=currentSolde-remainingSum;
+        console.log(`Archive: Bank ${b.nom} soldeInit ${b.soldeInit} -> ${newSoldeInit} (currentSolde=${currentSolde})`);
+        await supa('PATCH','banques',{solde_init:newSoldeInit},`id=eq.${b.id}`);
+      }
+      
+      // 3. Delete from Supabase
+      const ids=toArchive.map(t=>t.id).join(',');
+      await supa('DELETE','transactions','',`id=in.(${ids})`);
+      
+      await loadDB();render();
+      showToast(`✅ ${toArchive.length} transactions archivées et supprimées`);
+    },
+    "Archiver et supprimer","#ef4444"
+  );
+}
+
+function deleteByBanque(){
+  const bqId=document.getElementById("del-banque-sel")?.value;
+  if(!bqId){showToast("Choisissez une banque",true);return;}
+  const bq=find(DB.banques,+bqId);
+  const nb=DB.transactions.filter(t=>+t.bqId===+bqId).length;
+  if(nb===0){showToast("Aucune transaction pour cette banque",true);return;}
+  askConfirm(
+    `Supprimer ${nb} transaction${nb>1?'s':''} ?`,
+    `Toutes les transactions de "${bq?.nom||''}" seront supprimées définitivement.`,
+    async function(){
+      try{
+        await supa('DELETE','transactions','',`banque_id=eq.${bqId}`);
+        await loadDB();render();
+        showToast(`${nb} transaction${nb>1?'s':''} supprimée${nb>1?'s':''} ✅`);
+      }catch(e){showToast("Erreur: "+e.message,true);}
+    },
+    "Supprimer","#ef4444"
+  );
+}
+
+function doReset(){
+  askConfirm("Réinitialiser TOUTES les données ?","Transactions, tables et paramètres seront effacés.",async function(){
+    showLoading(true);
+    try{
+      // Delete ALL data from Supabase for this user
+      await supa('DELETE','transactions','','id=gt.0');
+      await supa('DELETE','recurrents','','id=gt.0');
+      await supa('DELETE','codes','','id=gt.0');
+      await supa('DELETE','moyens','','id=gt.0');
+      await supa('DELETE','natures','','id=gt.0');
+      await supa('DELETE','beneficiaires','','id=gt.0');
+      await supa('DELETE','banques','','id=gt.0');
+      await supa('DELETE','config','','cle=neq.zzz');
+      // Reset DB in memory completely
+      DB={banques:[],beneficiaires:[],natures:[],moyens:[],codes:[],
+          transactions:[],budgets:{},recurrents:[],appTitle:"💰 Mes Finances"};
+      // Reset all UI state
+      txSearch="";txFBq="";txFCode="";txFMois="";txShowF=false;txShowVerif="all";
+      txPMode="tous";txPAnnee=new Date().getFullYear().toString();txPDebut="";txPFin="";
+      txSelected=new Set();txSelectMode=false;
+      budgetMode="mois";budgetMois=today().slice(0,7);budgetDebut="";budgetFin="";
+      budgetAnnee=new Date().getFullYear().toString();budgetBanque="";dashBanqueFilter="";
+      recFBqFilter="";
+      dashBanquesSelected=new Set();
+      // Force re-render with empty data
+      updateHeader();
+      render();
+      showToast("Toutes les données réinitialisées ✓");
+    }catch(e){
+      showToast("Erreur: "+e.message,true);
+      console.error(e);
+    }finally{showLoading(false);}
+  },"Réinitialiser","#ef4444");
+}
+function dl(blob,name){
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");a.href=url;a.download=name;a.click();URL.revokeObjectURL(url);
+}
+
+// ═══════════════════════════════════════════
+// CONFIRMATION MODAL
+// ═══════════════════════════════════════════
+let _confirmCB=null;
+function askConfirm(msg,sub,cb,btnLabel,btnColor){
+  _confirmCB=cb;
+  document.getElementById("confirm-msg").textContent=msg;
+  document.getElementById("confirm-sub").textContent=sub||"";
+  const btn=document.getElementById("confirm-ok-btn");
+  btn.textContent=btnLabel||"Supprimer";btn.style.background=btnColor||"#ef4444";
+  document.getElementById("confirm-overlay").style.display="flex";
+}
+function confirmOK(){
+  document.getElementById("confirm-overlay").style.display="none";
+  if(_confirmCB){_confirmCB();_confirmCB=null;}
+}
+function confirmCancel(){
+  document.getElementById("confirm-overlay").style.display="none";_confirmCB=null;
+}
+
+// ═══════════════════════════════════════════
+// AUTHENTIFICATION
+// ═══════════════════════════════════════════
+let currentUser=null;
+let authMode="login";
+
+function switchAuthTab(mode){
+  authMode=mode;
+  document.querySelectorAll(".auth-tab").forEach((t,i)=>{
+    t.classList.toggle("active",(i===0&&mode==="login")||(i===1&&mode==="signup"));
+  });
+  document.getElementById("auth-btn").textContent=mode==="login"?"Se connecter":"Créer le compte";
+  document.getElementById("auth-pwd2-wrap").style.display=mode==="signup"?"block":"none";
+  document.getElementById("auth-err").style.display="none";
+}
+
+function showAuthError(msg){
+  const el=document.getElementById("auth-err");
+  el.textContent=msg;el.style.display="block";
+}
+
+async function authSubmit(){
+  const email=(document.getElementById("auth-email").value||"").trim();
+  const pwd=document.getElementById("auth-pwd").value||"";
+  if(!email||!pwd){showAuthError("Email et mot de passe requis");return;}
+  const btn=document.getElementById("auth-btn");
+  btn.textContent="⏳ Connexion…";btn.disabled=true;
+  document.getElementById("auth-err").style.display="none";
+  try{
+    if(authMode==="signup"){
+      const pwd2=document.getElementById("auth-pwd2").value||"";
+      if(pwd!==pwd2){showAuthError("Les mots de passe ne correspondent pas");btn.textContent="Créer le compte";btn.disabled=false;return;}
+      if(pwd.length<6){showAuthError("Mot de passe trop court (6 caractères minimum)");btn.textContent="Créer le compte";btn.disabled=false;return;}
+      const r=await fetch(`${SUPA_URL}/auth/v1/signup`,{method:'POST',headers:{'apikey':SUPA_KEY,'Content-Type':'application/json'},body:JSON.stringify({email,password:pwd})});
+      const d=await r.json();
+      if(d.error){showAuthError(d.error.message||d.error);btn.textContent="Créer le compte";btn.disabled=false;return;}
+      showAuthError("✅ Compte créé ! Vérifiez votre email puis connectez-vous.");
+      btn.textContent="Créer le compte";btn.disabled=false;
+      switchAuthTab("login");
+    }else{
+      const r=await fetch(`${SUPA_URL}/auth/v1/token?grant_type=password`,{method:'POST',headers:{'apikey':SUPA_KEY,'Content-Type':'application/json'},body:JSON.stringify({email,password:pwd})});
+      const d=await r.json();
+      if(d.error||!d.access_token){showAuthError(d.error_description||d.error||"Identifiants incorrects");btn.textContent="Se connecter";btn.disabled=false;return;}
+      // Store session
+      currentUser={token:d.access_token,refresh:d.refresh_token,email:d.user.email,id:d.user.id};
+      sessionStorage.setItem('mf_session',JSON.stringify(currentUser));
+      onAuthSuccess();
+    }
+  }catch(e){showAuthError("Erreur réseau: "+e.message);btn.textContent=authMode==="login"?"Se connecter":"Créer le compte";btn.disabled=false;}
+}
+
+async function authReset(){
+  const email=(document.getElementById("auth-email").value||"").trim();
+  if(!email){showAuthError("Entrez votre email d'abord");return;}
+  try{
+    await fetch(`${SUPA_URL}/auth/v1/recover`,{method:'POST',headers:{'apikey':SUPA_KEY,'Content-Type':'application/json'},body:JSON.stringify({email})});
+    showAuthError("✅ Email de réinitialisation envoyé !");
+  }catch(e){showAuthError("Erreur: "+e.message);}
+}
+
+function authLogout(){
+  currentUser=null;
+  _loadingPromise=null;
+  sessionStorage.removeItem('mf_session');
+  DB={banques:[],beneficiaires:[],natures:[],moyens:[],codes:[],transactions:[],budgets:{},recurrents:[],appTitle:"💰 Mes Finances"};
+  const safe=(id,fn)=>{const el=document.getElementById(id);if(el)fn(el);};
+  safe("auth-screen",el=>el.style.display="flex");
+  safe("header",el=>el.style.display="none");
+  safe("user-bar",el=>el.style.display="none");
+  safe("tabs",el=>el.style.display="none");
+  safe("logout-btn",el=>el.style.display="none");
+  safe("content",el=>el.innerHTML="");
+  safe("auth-email",el=>el.value="");
+  safe("auth-pwd",el=>el.value="");
+  safe("auth-btn",el=>{el.textContent="Se connecter";el.disabled=false;});
+  switchAuthTab("login");
+}
+
+function onAuthSuccess(){
+  const safe=(id,fn)=>{const el=document.getElementById(id);if(el)fn(el);};
+  safe("auth-screen",el=>el.style.display="none");
+  safe("header",el=>el.style.display="block");
+  safe("user-bar",el=>el.style.display="flex");
+  safe("tabs",el=>el.style.display="flex");
+  safe("logout-btn",el=>el.style.display="flex");
+  safe("user-email-display",el=>el.textContent="👤 "+currentUser.email);
+  currentTab="dashboard";
+  document.querySelectorAll(".tab-btn").forEach(b=>{
+    b.classList.toggle("active", b.dataset.tab==="dashboard");
+  });
+  loadDB().then(()=>{
+    if(DB&&DB.transactions){
+      render();
+      showToast("Connecté ✅");
+    }
+  }).catch(e=>{
+    console.error("onAuthSuccess loadDB error:",e);
+  });
+}
+
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
+async function init(){
+  const hide=id=>{const el=document.getElementById(id);if(el)el.style.display="none";};
+  const show=(id,d)=>{const el=document.getElementById(id);if(el)el.style.display=d||"block";};
+  hide("header"); hide("user-bar"); hide("tabs");
+  try{
+    const saved=sessionStorage.getItem('mf_session');
+    if(saved){
+      currentUser=JSON.parse(saved);
+      const r=await fetch(`${SUPA_URL}/auth/v1/user`,{
+        headers:{'apikey':SUPA_KEY,'Authorization':'Bearer '+currentUser.token}
+      });
+      if(r.ok){onAuthSuccess();return;}
+      else{
+        currentUser=null;
+        sessionStorage.removeItem('mf_session');
+      }
+    }
+  }catch(e){console.error("Init error:",e);}
+  show("auth-screen","flex");
+}
+init();
+</script>
+</body>
+</html>
